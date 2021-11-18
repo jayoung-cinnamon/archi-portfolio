@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   align-items: center;
   border-bottom: 1px solid black;
   background-color: #fcfdf8;
+  box-sizing: border-box;
 `;
 
 const MenuContainer = styled.div`
