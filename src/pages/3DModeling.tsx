@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header2 from "../components/header/Header2";
+import Header from "../components/header/Header";
 import GlobalStyle from "../styles/GlobalStyles";
 import GraphicViewer from "../components/graphicViewer/GraphicViewer";
 const ThreeDModeling = () => {
@@ -8,7 +8,7 @@ const ThreeDModeling = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <Header2 />
+        <Header />
         <Container>
           <Left>
             <Title>Apartment</Title>
