@@ -45,6 +45,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   padding: 50px 20px 20px 20px;
   height: 100%;
+  border: 1px solid red;
 `;
 
 const Container = styled.div`
@@ -81,9 +82,11 @@ const ImgRec = styled.div`
 const Right = styled.div`
   width: 50%;
   display: flex;
+  text-align: right;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 60px;
+  align-items: center;
 `;
 
 const Title = styled.div`
