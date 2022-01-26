@@ -7,8 +7,8 @@ const ThreeDModeling = () => {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <Wrapper>
-        <Header />
         <Container>
           <Left>
             <Title>Apartment</Title>
@@ -41,22 +41,24 @@ export default ThreeDModeling;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  background-color: #fcfdf8;
+  padding: 50px 0 0 0;
 `;
 
 const Container = styled.div`
-  /* width: 100%; */
-  height: 100%;
-  padding: 20px 20px;
+  /* height: 1050px; */
   display: flex;
+  font-size: 100px;
+  display: flex;
+  padding: 20px;
+  /* flex-direction: column; */
 `;
 
 const Left = styled.div`
   width: 40%;
+  /* height: 100px; */
 `;
 
 const Right = styled.div`

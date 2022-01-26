@@ -11,16 +11,39 @@ const Contact = () => {
       <Wrapper>
         <Container>
           <Right>
-            <RightTitle>Contact</RightTitle>
-            <RightSubTitle>Have a Project?</RightSubTitle>
+            <RightContainer>
+              <RightTitle>Contact Me</RightTitle>
+              <RightSubTitle>Let's work together!</RightSubTitle>
+            </RightContainer>
+
+            <SocialContainer>
+              <div>Find Me</div>
+              <IconContainer>
+                <SocialInsta />
+                <SocialMail />
+              </IconContainer>
+            </SocialContainer>
           </Right>
+
           <Left>
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-              voluptas vel iure ipsam exercitationem molestiae. Quasi accusamus
-              dicta architecto fugiat, officiis quibusdam minima iste harum
-              expedita nobis pariatur culpa optio.
-            </div>
+            <Line />
+            <MailContainer>
+              <ContactTitle>You can contact me by email</ContactTitle>
+              <InputContainer>
+                <MailTitle>Name</MailTitle>
+                <MailInput></MailInput>
+                <MailTitle>Company</MailTitle>
+                <MailInput></MailInput>
+              </InputContainer>
+              <InputContainer>
+                <MailTitle>E-mail</MailTitle>
+                <MailInput></MailInput>
+              </InputContainer>
+              <InputContainer>
+                <MailTitle>Purpose</MailTitle>
+                <MailInput></MailInput>
+              </InputContainer>
+            </MailContainer>
           </Left>
         </Container>
       </Wrapper>
@@ -34,7 +57,6 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  border: 3px solid yellow;
   padding: 50px 20px 20px 20px;
   height: 100%;
 `;
@@ -43,39 +65,121 @@ const Container = styled.div`
   height: 90vh;
   font-size: 100px;
   display: flex;
-  border: 1px solid red;
   width: 100%;
 `;
 
 const Right = styled.div`
-  border: 1px solid blue;
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
+  justify-content: space-between;
+  padding: 250px 30px 0px 30px;
 `;
+
+const RightContainer = styled.div``;
 
 const RightTitle = styled.div`
-  font-size: 60px;
-  font-weight: 300;
-`;
-
-const RightSubTitle = styled.div`
   font-size: 90px;
   font-weight: 500;
 `;
 
-const Left = styled.div`
-  width: 70%;
+const RightSubTitle = styled.div`
+  margin-top: 30px;
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 300;
+`;
+
+const SocialContainer = styled.div`
+  width: 100%;
+  height: 100px;
+  padding: 0;
+  font-size: 20px;
   display: flex;
-  border: 1px solid green;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  & .div {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  margin-bottom: 30px;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  width: 130px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const SocialInsta = styled.svg`
+  background-image: url("./icons/instagram.svg");
+  width: 57px;
+  height: 57px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  stroke: transparent;
+  stroke-width: 0px;
+`;
+
+const SocialMail = styled.svg`
+  background-image: url("./icons/mail.svg");
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  stroke: transparent;
+  stroke-width: 0px;
+`;
+
+const Left = styled.div`
+  padding-left: 100px;
+  width: 60%;
+  display: flex;
   & > div {
     font-size: 30px;
     padding: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
+  display: flex;
+  align-items: center;
+`;
+
+const MailContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputContainer = styled.div`
+  width: 80%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+`;
+
+const ContactTitle = styled.div`
+  font-size: 30px;
+  margin-bottom: 90px;
+`;
+
+const MailTitle = styled.div`
+  font-size: 20px;
+  width: 80px;
+`;
+const MailInput = styled.input`
+  font-size: 20px;
+  width: 30%;
+  color: red;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-right: 50px;
+`;
+
+const Line = styled.div`
+  border-left: 1px solid gray;
+  width: 0.5px;
+  height: 20%;
 `;
