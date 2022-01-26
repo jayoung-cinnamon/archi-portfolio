@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
 
-const GraphicPage = () => {
+const WorkPage = () => {
   return (
     <>
       <GlobalStyle />
@@ -33,7 +33,7 @@ const GraphicPage = () => {
   );
 };
 
-export default GraphicPage;
+export default WorkPage;
 
 const Wrapper = styled.div`
   width: 100%;

@@ -13,10 +13,10 @@ const Header = () => {
             <Menu>About</Menu>
           </Link>
           <Link to="/graphics">
-            <Menu>Work</Menu>
+            <Menu>3DModeling</Menu>
           </Link>
-          <Link to="/graphicpage">
-            <Menu>3D Modeling</Menu>
+          <Link to="/works">
+            <Menu>Work List</Menu>
           </Link>
           <Link to="/awards">
             <Menu>Awards</Menu>
