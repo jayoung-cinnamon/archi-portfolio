@@ -27,23 +27,26 @@ const Contact = () => {
 
           <Left>
             <Line />
-            <MailContainer>
-              <ContactTitle>You can contact me by email</ContactTitle>
-              <InputContainer>
-                <MailTitle>Name</MailTitle>
-                <MailInput></MailInput>
-                <MailTitle>Company</MailTitle>
-                <MailInput></MailInput>
-              </InputContainer>
-              <InputContainer>
-                <MailTitle>E-mail</MailTitle>
-                <MailInput></MailInput>
-              </InputContainer>
-              <InputContainer>
-                <MailTitle>Purpose</MailTitle>
-                <MailInput></MailInput>
-              </InputContainer>
-            </MailContainer>
+            <SendContainer>
+              <MailContainer>
+                <ContactTitle>You can contact me by email</ContactTitle>
+                <InputContainer>
+                  <MailTitle>Name</MailTitle>
+                  <MailInput></MailInput>
+                  <MailTitle>Company</MailTitle>
+                  <MailInput></MailInput>
+                </InputContainer>
+                <InputContainer>
+                  <MailTitle>E-mail</MailTitle>
+                  <MailInput></MailInput>
+                </InputContainer>
+                <InputContainer>
+                  <MailTitle>Purpose</MailTitle>
+                  <MailInput></MailInput>
+                </InputContainer>
+              </MailContainer>
+              <SendBtn>Send Mail</SendBtn>
+            </SendContainer>
           </Left>
         </Container>
       </Wrapper>
@@ -182,4 +185,25 @@ const Line = styled.div`
   border-left: 1px solid gray;
   width: 0.5px;
   height: 20%;
+`;
+
+const SendBtn = styled.button`
+  margin-top: 20px;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5;
+  padding-top: 5px;
+  padding-right: 10px;
+  border: none;
+  :hover {
+    background-color: #209fac;
+    color: white;
+  }
+`;
+
+const SendContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
