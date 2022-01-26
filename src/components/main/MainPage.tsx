@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Sample from "../../pages/3DModeling";
 
 const MainPage = () => {
   return (
@@ -17,16 +15,10 @@ const MainPage = () => {
             only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.{" "}
           </SubText>
-          {/* <Link to="/">
-            <MainTitle>ARCHITECT XXXX</MainTitle>
-          </Link> */}
-          {/* <Link to="/sample">
-            <TiltText>WORK</TiltText>
-          </Link> */}
-          {/* <TiltText>AWARDS</TiltText>
-          <TiltText>3D MODELING</TiltText> */}
         </TextContainer>
-        {/* <ImageContainer></ImageContainer> */}
+        <ImageContainer>
+          <MainImage />
+        </ImageContainer>
       </Body>
     </Wrapper>
   );
@@ -39,7 +31,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: #fbfdf7;
+  background-color: white;
   background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,7 +40,6 @@ const Wrapper = styled.div`
 
 const Body = styled.div`
   width: 100%;
-  /* height: 100%; */
   color: black;
   padding: 20px;
   display: flex;
@@ -60,7 +51,6 @@ const MainTitle = styled.div`
   font-weight: 800;
   color: #d50404;
   cursor: pointer;
-  /* letter-spacing: 1.03em; */
   &:hover {
     color: #209fac;
     transition: ease-in 0.5s;
@@ -88,15 +78,27 @@ const TiltText = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   padding-top: 100px;
-  /* justify-content: center; */
-  /* align-items: center; */
 `;
 
 const ImageContainer = styled.div`
   width: 50%;
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MainImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/main.png");
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: 30px 80px;
 `;
