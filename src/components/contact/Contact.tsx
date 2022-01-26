@@ -26,7 +26,6 @@ const Contact = () => {
           </Right>
 
           <Left>
-            <Line />
             <SendContainer>
               <MailContainer>
                 <ContactTitle>You can contact me by email</ContactTitle>
@@ -41,8 +40,8 @@ const Contact = () => {
                   <MailInput></MailInput>
                 </InputContainer>
                 <InputContainer>
-                  <MailTitle>Purpose</MailTitle>
-                  <MailInput></MailInput>
+                  <MailTitle>:</MailTitle>
+                  <ContentsInput></ContentsInput>
                 </InputContainer>
               </MailContainer>
               <SendBtn>Send Mail</SendBtn>
@@ -181,6 +180,16 @@ const MailInput = styled.input`
   margin-right: 50px;
 `;
 
+const ContentsInput = styled.input`
+  font-size: 20px;
+  width: 100%;
+  height: 150px;
+  color: blue;
+  border: none;
+  border: 1px solid gray;
+  margin-right: 50px;
+`;
+
 const Line = styled.div`
   border-left: 1px solid gray;
   width: 0.5px;
@@ -196,10 +205,12 @@ const SendBtn = styled.button`
   border-radius: 5;
   padding-top: 5px;
   padding-right: 10px;
-  border: none;
+  border: 1px solid gray;
+  background-color: white;
   :hover {
     background-color: #209fac;
     color: white;
+    border: none;
   }
 `;
 
