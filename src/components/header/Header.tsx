@@ -6,7 +6,7 @@ const Header = () => {
     <Wrapper>
       <Container>
         <Link to="/">
-          <Title>MOON YOUNG JUNG</Title>
+          <Title>MOON YOUNG JEONG</Title>
         </Link>
         <MenuContainer>
           <Link to="/about">
