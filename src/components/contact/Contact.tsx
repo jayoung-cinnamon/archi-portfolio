@@ -39,11 +39,8 @@ const Contact = () => {
                   <MailTitle>E-mail</MailTitle>
                   <MailInput></MailInput>
                 </InputContainer>
-                <InputContainer>
-                  <MailTitle>:</MailTitle>
-                  <ContentsInput></ContentsInput>
-                </InputContainer>
               </MailContainer>
+              <ContentsInput></ContentsInput>
               <SendBtn>Send Mail</SendBtn>
             </SendContainer>
           </Left>
@@ -71,11 +68,12 @@ const Container = styled.div`
 `;
 
 const Right = styled.div`
-  width: 40%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 250px 30px 0px 30px;
+  /* border: 1px solid green; */
 `;
 
 const RightContainer = styled.div``;
@@ -136,23 +134,29 @@ const SocialMail = styled.svg`
 `;
 
 const Left = styled.div`
+  /* border: 1px solid red; */
   padding-left: 100px;
-  width: 60%;
+  width: 80%;
   display: flex;
   & > div {
     font-size: 30px;
-    padding: 30px;
+    padding: 0px;
     display: flex;
     justify-content: center;
   }
   display: flex;
+  /* margin-left: auto; */
+  justify-content: space-between;
   align-items: center;
 `;
 
 const MailContainer = styled.div`
   width: 100%;
+  /* height: 400px; */
   display: flex;
   flex-direction: column;
+
+  /* border: 1px solid blue; */
 `;
 
 const InputContainer = styled.div`
@@ -160,6 +164,7 @@ const InputContainer = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
+  /* border: 1px solid red; */
 `;
 
 const ContactTitle = styled.div`
@@ -169,25 +174,34 @@ const ContactTitle = styled.div`
 
 const MailTitle = styled.div`
   font-size: 20px;
-  width: 80px;
+  /* width: 80px; */
 `;
 const MailInput = styled.input`
   font-size: 20px;
-  width: 30%;
+  width: 100px;
   color: red;
   border: none;
   border-bottom: 1px solid gray;
   margin-right: 50px;
+  margin-left: 15px;
 `;
 
-const ContentsInput = styled.input`
+const ContentsInput = styled.textarea`
   font-size: 20px;
-  width: 100%;
-  height: 150px;
+  width: 78%;
+  height: 100px;
   color: blue;
   border: none;
   border: 1px solid gray;
-  margin-right: 50px;
+  /* margin-right: 50px;
+  margin-left: 15px; */
+  /* right: -100px; */
+  resize: none;
+  margin-left: 55px;
+  margin-top: 15px;
+  /* position: absolute; */
+  /* top: 0; */
+  /* margin-top: 100px; */
 `;
 
 const Line = styled.div`
@@ -197,16 +211,19 @@ const Line = styled.div`
 `;
 
 const SendBtn = styled.button`
-  margin-top: 20px;
+  /* margin-top: 20px; */
   font-size: 18px;
   width: 100px;
   height: 30px;
-  text-align: center;
+  text-align: right;
   border-radius: 5;
   padding-top: 5px;
   padding-right: 10px;
   border: 1px solid gray;
   background-color: white;
+  position: relative;
+  bottom: -15px;
+  right: -335px;
   :hover {
     background-color: #209fac;
     color: white;
@@ -215,6 +232,12 @@ const SendBtn = styled.button`
 `;
 
 const SendContainer = styled.div`
+  height: 500px;
+  /* padding: 10px; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  /* margin: auto 0 0 auto; */
+
+  /* border: 1px solid red; */
 `;
