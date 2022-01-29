@@ -37,7 +37,7 @@ const Contact = () => {
                 </InputContainer>
                 <InputContainer>
                   <MailTitle>E-mail</MailTitle>
-                  <MailInput></MailInput>
+                  <MailInput2></MailInput2>
                 </InputContainer>
               </MailContainer>
               <ContentsInput></ContentsInput>
@@ -177,31 +177,38 @@ const MailTitle = styled.div`
   /* width: 80px; */
 `;
 const MailInput = styled.input`
-  font-size: 20px;
+  font-size: 15px;
   width: 100px;
   color: red;
   border: none;
   border-bottom: 1px solid gray;
   margin-right: 50px;
   margin-left: 15px;
+  padding: 3px;
+`;
+
+const MailInput2 = styled.input`
+  font-size: 15px;
+  width: 250px;
+  color: red;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-right: 50px;
+  margin-left: 15px;
+  padding: 3px;
 `;
 
 const ContentsInput = styled.textarea`
-  font-size: 20px;
-  width: 78%;
+  font-size: 13px;
+  width: 370px;
   height: 100px;
   color: blue;
   border: none;
   border: 1px solid gray;
-  /* margin-right: 50px;
-  margin-left: 15px; */
-  /* right: -100px; */
   resize: none;
   margin-left: 55px;
   margin-top: 15px;
-  /* position: absolute; */
-  /* top: 0; */
-  /* margin-top: 100px; */
+  padding: 5px;
 `;
 
 const Line = styled.div`
@@ -212,18 +219,18 @@ const Line = styled.div`
 
 const SendBtn = styled.button`
   /* margin-top: 20px; */
-  font-size: 18px;
-  width: 100px;
+  font-size: 15px;
+  width: 85px;
   height: 30px;
   text-align: right;
   border-radius: 5;
   padding-top: 5px;
-  padding-right: 10px;
+  padding-right: 0px;
   border: 1px solid gray;
   background-color: white;
   position: relative;
   bottom: -15px;
-  right: -335px;
+  right: -350px;
   :hover {
     background-color: #209fac;
     color: white;

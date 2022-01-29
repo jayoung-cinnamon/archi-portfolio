@@ -16,7 +16,7 @@ const Header = () => {
             <Menu>3DModeling</Menu>
           </Link>
           <Link to="/works">
-            <Menu>Work List</Menu>
+            <Menu>Project</Menu>
           </Link>
           <Link to="/awards">
             <Menu>Awards</Menu>

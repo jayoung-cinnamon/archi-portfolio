@@ -31,7 +31,7 @@ const AboutMain = () => {
                 <h2>Less is More</h2>
                 <Quot2>"</Quot2>
               </QuotContainer> */}
-              {/* 
+
               <ProfileContainer>
                 <h3>
                   {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
@@ -44,7 +44,7 @@ const AboutMain = () => {
                   Special Mention /D3 Housing Tomorrow 2015
                   동상 / 9회 공중 화장실 설계 공모전`}
                 </h3>
-              </ProfileContainer> */}
+              </ProfileContainer>
             </SubTitle>
           </Right>
           <Arrow>
