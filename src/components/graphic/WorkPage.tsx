@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
-import schoolWork from "../../data/schoolWork";
+// import schoolWork from "../../data/schoolWork";
+import awards from "../../data/awards";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { Link } from "next/link";
+import { isTemplateExpression } from "typescript";
 const WorkPage = () => {
-  const schoolWork2022 = schoolWork.y2022;
-  const schoolWork2021 = schoolWork.y2021;
-  const schoolWorkTotalList = schoolWork2022.concat(schoolWork2021);
-  console.log(schoolWorkTotalList);
+  const awards2017 = awards.y2017;
+  const awards2016 = awards.y2016;
+  const awards2015 = awards.y2015;
+  const awards2014 = awards.y2014;
+  const awards2013 = awards.y2013;
 
-  const onClickLink = () => {
-    console.log("Clicked");
-  };
-
+  const awardsTotalList = [
+    ...awards2017,
+    ...awards2016,
+    ...awards2015,
+    ...awards2014,
+    ...awards2013,
+  ];
+  const [hover, setHover] = useState(0);
+  const sortedAwardsTotalList = [...awardsTotalList].sort();
   const router = useRouter();
   // const link = router.asPath;
   return (
@@ -29,14 +36,17 @@ const WorkPage = () => {
           </Left>
           <Right>
             <WorkList>
-              {schoolWorkTotalList.map((item, index) => (
+              {awardsTotalList.map((item, index) => (
                 <Link href={item.url} key={index}>
-                  <WorkComponent onClick={onClickLink}>
+                  <WorkComponent
+                    key={index}
+                    unHovered={hover !== null && hover !== index}
+                    hovered={hover == index}
+                    onMouseOver={() => setHover(index)}
+                  >
                     <ThumbNailContainer
-                      src={`${process.env.PUBLIC_URL}/project/2021/1/${item.thumbNail}`}
-                    >
-                      {item.thumbNail}
-                    </ThumbNailContainer>
+                      src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
+                    ></ThumbNailContainer>
 
                     <WorkTitle>{item.title}</WorkTitle>
                     <WorkSubTitle>{item.subTitle}</WorkSubTitle>
@@ -58,6 +68,10 @@ interface SrcProps {
   src: string;
 }
 
+interface HoverProps {
+  unHovered: boolean;
+  hovered: boolean;
+}
 const Wrapper = styled.div`
   width: 100%;
 
@@ -101,16 +115,28 @@ const WorkList = styled.div`
   /* border: 1px solid green; */
 `;
 
-const WorkComponent = styled.div`
+const WorkComponent = styled.div<HoverProps>`
   width: 300px;
   height: 300px;
-  /* border: 1px solid red; */
   margin: 10px;
+  margin-bottom: 40px;
+  ${(props) =>
+    props.unHovered &&
+    css`
+      opacity: 0.5;
+      transition: 0.3s ease-in;
+    `}
+  ${(props) =>
+    props.hovered &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 const WorkTitle = styled.div`
   width: 100%;
   /* border: 1px solid red; */
+  margin-top: 10px;
   font-size: 15px;
   font-weight: 600;
 `;
@@ -120,6 +146,7 @@ const WorkSubTitle = styled.div`
   /* border: 1px solid blue; */
   font-size: 13px;
   font-weight: 300;
+  margin-top: 10px;
 `;
 
 const ThumbNailContainer = styled.div<SrcProps>`
