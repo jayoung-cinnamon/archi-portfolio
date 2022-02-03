@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styled, { css } from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
@@ -21,10 +21,45 @@ const WorkPage = () => {
     ...awards2014,
     ...awards2013,
   ];
+
   const [hover, setHover] = useState(0);
   const sortedAwardsTotalList = [...awardsTotalList].sort();
   const router = useRouter();
-  // const link = router.asPath;
+  const selectList = [
+    { value: "latest", name: "최신순" },
+    { value: "awards", name: "수상" },
+    { value: "notAwards", name: "비수상" },
+  ];
+  const [selected, setSelected] = useState("");
+
+  const handleSelect = (e: any) => {
+    setSelected(e.target.value);
+  };
+
+  const [newList, setNewList] = useState<newListInfo[]>(sortedAwardsTotalList);
+  interface newListInfo {
+    id: number;
+    title: string;
+    subTitle: string;
+    subImage: string;
+    thumbNail: string;
+    url: string;
+    detail: string;
+    regDate: string;
+    workDate: string;
+    award: string;
+    area: string;
+  }
+  useEffect(() => {
+    if (selected === "latest") {
+      setNewList(sortedAwardsTotalList);
+    } else if (selected === "awards") {
+      setNewList(sortedAwardsTotalList.filter((item) => item.award === "y"));
+    } else if (selected === "notAwards") {
+      setNewList(sortedAwardsTotalList.filter((item) => item.award === "n"));
+    }
+  }, [selected]);
+
   return (
     <>
       <GlobalStyle />
@@ -33,16 +68,25 @@ const WorkPage = () => {
         <Container>
           <Left>
             <Title>Projects</Title>
+
+            <select onChange={handleSelect} value={selected}>
+              {selectList.map((item) => (
+                <option value={item.value} key={item.value}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
           </Left>
           <Right>
             <WorkList>
-              {awardsTotalList.map((item, index) => (
+              {newList.map((item, index) => (
                 <Link href={item.url} key={index}>
                   <WorkComponent
                     key={index}
                     unHovered={hover !== null && hover !== index}
-                    hovered={hover == index}
+                    hovered={hover === index}
                     onMouseOver={() => setHover(index)}
+                    onMouseOut={() => setHover(20)}
                   >
                     <ThumbNailContainer
                       src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
@@ -91,7 +135,9 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  width: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   /* border: 1px solid red; */
 `;
 
@@ -124,7 +170,7 @@ const WorkComponent = styled.div<HoverProps>`
     props.unHovered &&
     css`
       opacity: 0.5;
-      transition: 0.3s ease-in;
+      transition: 0s ease-in;
     `}
   ${(props) =>
     props.hovered &&
