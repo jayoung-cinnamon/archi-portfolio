@@ -18,6 +18,7 @@ const awards = {
       workDate: "2017.03.03",
       award: "y", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "n", //y:실무 n:기획
     },
     {
       id: 8,
@@ -33,6 +34,7 @@ const awards = {
       workDate: "2017.02.02",
       award: "y", //y: 수상 ,n:미수상
       area: "Yongin, Korea",
+      professional: "n", //y:실무 n:기획
     },
   ],
   y2016: [
@@ -47,8 +49,9 @@ const awards = {
         "자연제방에 해당하는 부분이 도서관 시설로써 공원의 경관을 일차적으로 받아들이고 그뒤에 위치하는 매스가 화장실과 모유수유실 등의 프라이버시가 요구되는 매스가 오도록 하였다.",
       regDate: "2022.01.29", //업데이트 날짜는 선택,
       workDate: "2016.01.01",
-      award: "y", //y: 수상 ,n:미수상
+      award: "n", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "y", //y:실무 n:기획
     },
   ],
   y2015: [
@@ -65,6 +68,7 @@ const awards = {
       workDate: "2015.05.05",
       award: "n", //y: 수상 ,n:미수상
       area: "Italy",
+      professional: "n", //y:실무 n:기획
     },
     {
       id: 5,
@@ -80,6 +84,7 @@ const awards = {
       workDate: "2015.03.03",
       award: "n", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "n", //y:실무 n:기획
     },
     {
       id: 4,
@@ -93,8 +98,9 @@ const awards = {
         "석하는 방법은 쌈지길의 램프를 마로니에공원으로 가져왔을 때에 어떻게 될 것인가 라는 생각에서 시작한다. 쌈지길의 수직동선을 이어주는‘램프(경사로)’는 마로니에 공원의 수평동선을 이어주는 벽으로 재해석되며 그 벽은 많은 수평 동선을 하나의 흐름으로 만들어준다. 또한 우리는 벽으로 만들어 준 흐름에서 사람들의 소통이 일어날 것을 기대한다",
       regDate: "2022.01.29", //업데이트 날짜는 선택,
       workDate: "2015.01.01",
-      award: "y", //y: 수상 ,n:미수상
+      award: "n", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "n", //y:실무 n:기획
     },
   ],
   y2014: [
@@ -111,6 +117,7 @@ const awards = {
       workDate: "2014.03.03",
       award: "y", //y: 수상 ,n:미수상
       area: "Busan, Korea",
+      professional: "n", //y:실무 n:기획
     },
     {
       id: 2,
@@ -125,6 +132,7 @@ const awards = {
       workDate: "2014.02.02",
       award: "y", //y: 수상 ,n:미수상
       area: "Newyork",
+      professional: "n", //y:실무 n:기획
     },
     {
       id: 1,
@@ -140,6 +148,7 @@ const awards = {
       workDate: "2014.01.01",
       award: "n", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "n", //y:실무 n:기획
     },
   ],
   y2013: [
@@ -157,6 +166,7 @@ const awards = {
       workDate: "2013.03.03",
       award: "n", //y: 수상 ,n:미수상
       area: "Seoul, Korea",
+      professional: "n", //y:실무 n:기획
     },
   ],
   y2012: [{}],

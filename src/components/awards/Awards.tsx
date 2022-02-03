@@ -3,31 +3,89 @@ import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
 import { select } from "d3";
+import awards from "../../data/awards";
+import { callbackify } from "util";
+import { workerData } from "worker_threads";
 
 const Awards = () => {
-  const [data, setData] = useState([1, 30, 45, 70]);
-  const [color, setColor] = useState(["skyblue", "blue", "lime", "darkgreen"]);
-  const svgRef = useRef(null);
-  useEffect(() => {
-    const svg = select(svgRef.current); // selection 객체
+  // const data = Object.values(awards).filter((item) => item.length > 1);
+  // console.log(data);
+  // const concatData = [];
+  // for (const key in data) {
+  //   const test = Object.values(data[key]);
+  //   // concatData.push(data[key]);
+  //   console.log(`test ${test}`);
 
-    svg
-      .selectAll("D3Container")
-      .data(data)
-      .join(
-        (enter) => enter.append("rect"),
-        (update) => update.attr("class", "updated"),
-        (exit) => exit.remove()
-      )
-      .attr("x", (value) => value * 30)
-      .attr("y", (value) => value * 30)
-      .attr("width", (value) => value * 100)
-      .attr("height", (value) => value * 100)
-      .attr("stroke", "black")
-      .attr("stroke-width", "1")
-      .attr("fill", "pink")
-      .attr("opacity", "1");
-  }, [data]);
+  //   concatData.push(test);
+  // }
+
+  // console.log(`concatData ${concatData}`);
+  const awards2017 = awards.y2017;
+  const awards2016 = awards.y2016;
+  const awards2015 = awards.y2015;
+  const awards2014 = awards.y2014;
+  const awards2013 = awards.y2013;
+
+  const awardsTotalList = [
+    ...awards2017,
+    ...awards2016,
+    ...awards2015,
+    ...awards2014,
+    ...awards2013,
+  ];
+  const [allData, setAllData] = useState(awardsTotalList);
+
+  const [awardData, setAwardData] = useState<awardListInfo[]>();
+  interface awardListInfo {
+    id: number;
+    title: string;
+    subTitle: string;
+    subImage: string;
+    thumbNail: string;
+    url: string;
+    detail: string;
+    regDate: string;
+    workDate: string;
+    award: string;
+    area: string;
+  }
+  // const filterList = Object.values(awardsTotalList).map((item, index) => {
+  //   console.log(item.workDate);
+  // });
+  // console.log(`filterList ${filterList}`);
+  const filterList: any = [];
+  useEffect(() => {
+    setAwardData(awardsTotalList.filter((item) => item.award === "y"));
+    // console.log(awardData);
+    // setData(filterList);
+  }, []);
+
+  // const increaseData = () => {
+  //   setData(data.map((value) => value + 5));
+  // };
+  // const svgRef = useRef(null);
+  // useEffect(() => {
+  //   const svg = select(svgRef.current); // selection 객체
+
+  //   svg
+  //     .selectAll("circle")
+  //     .data(awardData)
+  //     .join(
+  //       (enter) => enter.append("circle"),
+  //       (update) => update.attr("class", "updated"),
+  //       (exit) => exit.remove()
+  //     )
+  //     .attr("r", (value: any) => value)
+  //     .attr("cx", (value: any) => value * 2)
+  //     .attr("cy", (value: any) => value * 2)
+  //     .attr("stroke", "red");
+  // }, []);
+
+  // const clickAll = () => {
+  //   setAllData(allData);
+  //   console.log(`alldata ${allData}`);
+  // };
+
   return (
     <>
       <GlobalStyle />
@@ -35,13 +93,17 @@ const Awards = () => {
       <Wrapper>
         <Container>
           <D3Container>
-            <svg ref={svgRef}>
-              {data.map((el, i) => (
-                <rect r={el} key={i}>
+            {/* <svg ref={svgRef}>
+              {awardData.map(el,i)=>(
+                <circle r={el} key={i}>
                   {el}
-                </rect>
-              ))}
-            </svg>
+                </circle>
+              )}
+            </svg> */}
+
+            {/* <svg ref={svgRef}>
+              <circle />
+            </svg> */}
           </D3Container>
         </Container>
       </Wrapper>

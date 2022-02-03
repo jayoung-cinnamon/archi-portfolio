@@ -26,9 +26,9 @@ const WorkPage = () => {
   const sortedAwardsTotalList = [...awardsTotalList].sort();
   const router = useRouter();
   const selectList = [
-    { value: "latest", name: "최신순" },
-    { value: "awards", name: "수상" },
-    { value: "notAwards", name: "비수상" },
+    { value: "latest", name: "latest" },
+    { value: "awards", name: "award" },
+    { value: "professional", name: "professional" },
   ];
   const [selected, setSelected] = useState("");
 
@@ -49,14 +49,17 @@ const WorkPage = () => {
     workDate: string;
     award: string;
     area: string;
+    professional: string;
   }
   useEffect(() => {
     if (selected === "latest") {
       setNewList(sortedAwardsTotalList);
     } else if (selected === "awards") {
       setNewList(sortedAwardsTotalList.filter((item) => item.award === "y"));
-    } else if (selected === "notAwards") {
-      setNewList(sortedAwardsTotalList.filter((item) => item.award === "n"));
+    } else if (selected === "professional") {
+      setNewList(
+        sortedAwardsTotalList.filter((item) => item.professional === "y")
+      );
     }
   }, [selected]);
 
