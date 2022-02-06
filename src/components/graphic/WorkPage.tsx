@@ -29,6 +29,10 @@ const WorkPage = () => {
     { value: "latest", name: "latest" },
     { value: "awards", name: "award" },
     { value: "professional", name: "professional" },
+    // { value: "2017", name: "2017년" },
+    // { value: "2016", name: "2016년" },
+    // { value: "2015", name: "2015년" },
+    // { value: "2014", name: "2014년" },
   ];
   const [selected, setSelected] = useState("");
 
@@ -61,6 +65,31 @@ const WorkPage = () => {
         sortedAwardsTotalList.filter((item) => item.professional === "y")
       );
     }
+    // } else if (selected === "2016") {
+    //   setNewList(
+    //     sortedAwardsTotalList.filter(
+    //       (item) => item.workDate.includes("2016") === true
+    //     )
+    //   );
+    // } else if (selected === "2015") {
+    //   setNewList(
+    //     sortedAwardsTotalList.filter(
+    //       (item) => item.workDate.includes("2015") === true
+    //     )
+    //   );
+    // } else if (selected === "2014") {
+    //   setNewList(
+    //     sortedAwardsTotalList.filter(
+    //       (item) => item.workDate.includes("2014") === true
+    //     )
+    //   );
+    // } else if (selected === "2017") {
+    //   setNewList(
+    //     sortedAwardsTotalList.filter(
+    //       (item) => item.workDate.includes("2017") === true
+    //     )
+    //   );
+    // }
   }, [selected]);
 
   return (
