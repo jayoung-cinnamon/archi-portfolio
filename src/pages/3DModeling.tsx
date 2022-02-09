@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 import GlobalStyle from "../styles/GlobalStyles";
 import GraphicViewer from "../components/graphicViewer/GraphicViewer";
 const ThreeDModeling = () => {
@@ -33,6 +34,7 @@ const ThreeDModeling = () => {
           </Right>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };

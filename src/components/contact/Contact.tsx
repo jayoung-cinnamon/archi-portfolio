@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
-
+import Footer from "../footer/Footer";
 const Contact = () => {
   return (
     <>
@@ -46,6 +46,7 @@ const Contact = () => {
           </Left>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };

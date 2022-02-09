@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
-
+import Footer from "../footer/Footer";
 const AboutMain = () => {
   return (
     <>
@@ -25,13 +25,6 @@ const AboutMain = () => {
               미처 알지 못했던 당신이 찾던 공간
               함께 찾고 그려드립니다.`}</div>
               </div>
-
-              {/* <QuotContainer>
-                <Quot>"</Quot>
-                <h2>Less is More</h2>
-                <Quot2>"</Quot2>
-              </QuotContainer> */}
-
               <ProfileContainer>
                 <h3>
                   {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
@@ -64,8 +57,8 @@ const AboutMain = () => {
             </div>
           </Arrow>
         </Container>
-        {/* <TimeLineContainer></TimeLineContainer> */}
       </Wrapper>
+      <Footer />
     </>
   );
 };
@@ -78,6 +71,8 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   padding: 50px 20px 20px 20px;
   height: 100%;
+
+  border: 1px solid red;
 `;
 
 const Container = styled.div`
@@ -88,6 +83,9 @@ const Container = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid green;
+  white-space: nowrap;
+  /* overflow-x: auto; */
 `;
 const Left = styled.div`
   width: 50%;
@@ -97,6 +95,7 @@ const Left = styled.div`
   justify-content: flex-end;
   padding-top: 10px;
   margin-top: 10px;
+  border: 1px solid blue;
 `;
 const ProfileImg = styled.div`
   width: 500px;
@@ -106,18 +105,18 @@ const ProfileImg = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   top: 70px;
-  position: fixed;
 `;
 
 const Right = styled.div`
   width: 50%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   text-align: right;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 60px;
   align-items: center;
+  border: 1px solid red;
 `;
 
 const Title = styled.div`
@@ -215,7 +214,6 @@ const Arrow = styled.div`
       animation-name: opacity;
       animation-duration: 1.5s;
       animation-iteration-count: infinite;
-      /* border: 1px solid red; */
     }
     .scroll-prompt-arrow:last-child {
       animation-direction: reverse;
@@ -283,46 +281,6 @@ const Arrow = styled.div`
     100% {
       transform: translateX(0px);
     }
-
-    /* 10% {
-      transform: translateX(-27px);
-    }
-
-    20% {
-      transform: translateX(-24px);
-    }
-
-    30% {
-      transform: translateX(-21px);
-    }
-
-    40% {
-      transform: translateX(-18px);
-    }
-
-    50% {
-      transform: translateX(-15px);
-    }
-
-    60% {
-      transform: translateX(-12px);
-    }
-
-    70% {
-      transform: translateX(-9px);
-    }
-
-    80% {
-      transform: translateX(-6px);
-    }
-
-    90% {
-      transform: translateX(-3px);
-    }
-
-    100% {
-      transform: translateX(0px);
-    } */
   }
 `;
 

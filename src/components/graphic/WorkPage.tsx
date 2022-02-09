@@ -2,11 +2,12 @@ import React, { useState, useCallback, useEffect } from "react";
 import styled, { css } from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
-// import schoolWork from "../../data/schoolWork";
 import awards from "../../data/awards";
-import Link from "next/link";
+import Footer from "../footer/Footer";
+// import Link from "next/link";
 import { useRouter } from "next/router";
-import { isTemplateExpression } from "typescript";
+import { Link } from "react-router-dom";
+
 const WorkPage = () => {
   const awards2017 = awards.y2017;
   const awards2016 = awards.y2016;
@@ -65,31 +66,6 @@ const WorkPage = () => {
         sortedAwardsTotalList.filter((item) => item.professional === "y")
       );
     }
-    // } else if (selected === "2016") {
-    //   setNewList(
-    //     sortedAwardsTotalList.filter(
-    //       (item) => item.workDate.includes("2016") === true
-    //     )
-    //   );
-    // } else if (selected === "2015") {
-    //   setNewList(
-    //     sortedAwardsTotalList.filter(
-    //       (item) => item.workDate.includes("2015") === true
-    //     )
-    //   );
-    // } else if (selected === "2014") {
-    //   setNewList(
-    //     sortedAwardsTotalList.filter(
-    //       (item) => item.workDate.includes("2014") === true
-    //     )
-    //   );
-    // } else if (selected === "2017") {
-    //   setNewList(
-    //     sortedAwardsTotalList.filter(
-    //       (item) => item.workDate.includes("2017") === true
-    //     )
-    //   );
-    // }
   }, [selected]);
 
   return (
@@ -112,7 +88,7 @@ const WorkPage = () => {
           <Right>
             <WorkList>
               {newList.map((item, index) => (
-                <Link href={item.url} key={index}>
+                <Link to={item.url} key={index}>
                   <WorkComponent
                     key={index}
                     unHovered={hover !== null && hover !== index}
@@ -120,9 +96,11 @@ const WorkPage = () => {
                     onMouseOver={() => setHover(index)}
                     onMouseOut={() => setHover(20)}
                   >
-                    <ThumbNailContainer
-                      src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
-                    ></ThumbNailContainer>
+                    <ImgContainer>
+                      <ThumbNailWrapper
+                        src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
+                      ></ThumbNailWrapper>
+                    </ImgContainer>
 
                     <WorkTitle>{item.title}</WorkTitle>
                     <WorkSubTitle>{item.subTitle}</WorkSubTitle>
@@ -133,6 +111,7 @@ const WorkPage = () => {
           </Right>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };
@@ -204,11 +183,6 @@ const WorkComponent = styled.div<HoverProps>`
       opacity: 0.5;
       transition: 0s ease-in;
     `}
-  ${(props) =>
-    props.hovered &&
-    css`
-      opacity: 1;
-    `}
 `;
 
 const WorkTitle = styled.div`
@@ -227,11 +201,24 @@ const WorkSubTitle = styled.div`
   margin-top: 10px;
 `;
 
-const ThumbNailContainer = styled.div<SrcProps>`
+const ImgContainer = styled.div`
   width: 100%;
   height: 90%;
-  background-size: cover;
-  font-size: 10px;
+  overflow: hidden;
+  /* height: 58.6vw; */
+  /* margin: 0 0 40px 0; */
+`;
+
+const ThumbNailWrapper = styled.div<SrcProps>`
+  width: 100%;
+  height: 90%;
   background-image: url(${(props) => props.src});
-  cursor: pointer;
+  background-size: cover;
+  margin: 0 0 40px 0;
+  cursor:pointer;
+    :hover {
+      transition: all 0.3s ease-out;
+      transform: scale(1.1);
+    }
+  }
 `;

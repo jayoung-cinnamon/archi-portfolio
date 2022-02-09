@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
+import Footer from "../footer/Footer";
 import { select } from "d3";
 import awards from "../../data/awards";
 import { callbackify } from "util";
@@ -33,6 +34,7 @@ const Awards = () => {
           </Right>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };
