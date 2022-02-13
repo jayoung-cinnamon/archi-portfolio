@@ -28,22 +28,27 @@ const Facilleum = () => {
       <Header />
       <Wrapper>
         <Container>
-          <InfoContainer
-            src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-          >
-            <Title>{newList[0].title}</Title>
-            <SubTitle>{newList[0].subTitle}</SubTitle>
-            <Detail>{newList[0].detail}</Detail>
-            <WorkDate>{newList[0].workDate}</WorkDate>
-            <Area>{newList[0].area}</Area>
+          <InfoContainer>
+            <InfoLeft>
+              <Title>{newList[0].title}</Title>
+              <SubTitle>{newList[0].subTitle}</SubTitle>
+            </InfoLeft>
+            <InfoRight>
+              <WorkDate>{newList[0].workDate}</WorkDate>
+              <Area>{newList[0].area}</Area>
+            </InfoRight>
           </InfoContainer>
           <ContentsContainer>
             <TextContainer>{newList[0].detail}</TextContainer>
             <ImgContainer>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloremque minus dolorem praesentium dolorum dignissimos! Tempora
+              excepturi quae assumenda, nisi reprehenderit iste explicabo nulla
+              doloribus ex optio quam enim, repellendus deleniti.
               <Img1
                 src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
               ></Img1>
-              <Img2
+              {/* <Img2
                 src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
               ></Img2>
               <Img3
@@ -54,7 +59,7 @@ const Facilleum = () => {
               ></Img4>
               <Img5
                 src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img5>
+              ></Img5> */}
             </ImgContainer>
           </ContentsContainer>
         </Container>
@@ -91,6 +96,7 @@ const Container = styled.div`
 const Title = styled.div`
   font-size: 40px;
   font-weight: 800;
+  margin-right: 10px;
 `;
 
 const SubTitle = styled.div`
@@ -104,28 +110,53 @@ const Detail = styled.div`
 `;
 
 const WorkDate = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
 `;
 
 const Area = styled.div`
   font-size: 15px;
   font-weight: 300;
-  color: blue;
+  margin-top: 3px;
+  /* color: blue; */
 `;
 
-const InfoContainer = styled.div<SrcProps>`
+const InfoContainer = styled.div`
   width: 100%;
-  height: 300px;
-  border: 1px solid red;
-  background-image: url(${(props) => props.src});
+  height: 55px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  margin-bottom: 20px;
+`;
+
+const InfoLeft = styled.div`
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+`;
+
+const InfoRight = styled.div`
+  /* width: 100%; */
+  /* heigth: 100%; */
+  font-size: 20px;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 
 const ContentsContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  border: 1px solid blue;
+
+  /* border: 1px solid blue; */
 `;
 
 const TextContainer = styled.div`
@@ -138,6 +169,7 @@ const TextContainer = styled.div`
 
 const ImgContainer = styled.div`
   width: 70%;
+  padding: 10px;
   height: 100%;
   /* display: flex; */
   display: flex;
@@ -145,14 +177,16 @@ const ImgContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid red;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const Img1 = styled.div<SrcProps>`
   margin: 5px;
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 300px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-image: url(${(props) => props.src});
 `;
 const Img2 = styled.div<SrcProps>`
@@ -160,12 +194,12 @@ const Img2 = styled.div<SrcProps>`
   width: 80%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-image: url(${(props) => props.src});
 `;
 const Img3 = styled.div<SrcProps>`
   margin: 5px;
-  width: 80%;
+  width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;

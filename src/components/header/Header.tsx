@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Burger from "./Burger";
 const Header = () => {
   return (
     <Wrapper>
       <Container>
+        <Burger />
         <Link to="/">
-          <Title>MOON YOUNG JEONG</Title>
+          <Title>Jeong Moon-young</Title>
         </Link>
-        <MenuContainer>
+        {/* <MenuContainer>
           <Link to="/about">
             <Menu>About</Menu>
           </Link>
@@ -27,7 +29,8 @@ const Header = () => {
           <Link to="/">
             <Logo>M</Logo>
           </Link>
-        </MenuContainer>
+        </MenuContainer> */}
+        <Logo>M</Logo>
       </Container>
     </Wrapper>
   );
@@ -44,7 +47,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   display: flex;
-  height: 50px;
+  height: 65px;
   padding: 20px;
   border: 1px solid grey;
   justify-content: space-between;
@@ -54,7 +57,6 @@ const Container = styled.div`
 `;
 
 const MenuContainer = styled.div`
-  width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,5 +83,6 @@ const Logo = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 15px;
+  color: #ff6400;
+  font-size: 20px;
 `;

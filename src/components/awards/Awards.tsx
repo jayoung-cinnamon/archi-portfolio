@@ -32,6 +32,13 @@ const Awards = () => {
               )}
             </ParentSize>
           </Right>
+          <Right>
+            <ParentSize>
+              {({ width, height }) => (
+                <AwardsData width={width} height={height} />
+              )}
+            </ParentSize>
+          </Right>
         </Container>
       </Wrapper>
       <Footer />
@@ -54,6 +61,8 @@ const Container = styled.div`
   display: flex;
   font-size: 100px;
   display: flex;
+  flex-direction: column;
+  /* overflow: auto; */
   /* flex-direction: column; */
   /* border: 1px solid red; */
 `;
@@ -66,6 +75,8 @@ const Left = styled.div`
 const Right = styled.div`
   width: 100%;
   height: 700px;
+  border: 1px solid red;
+  font-size: 20px;
   /* border: 1px solid blue; */
 `;
 const D3Container = styled.div`

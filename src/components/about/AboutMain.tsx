@@ -85,7 +85,7 @@ const Container = styled.div`
   align-items: center;
   border: 1px solid green;
   white-space: nowrap;
-  /* overflow-x: auto; */
+  overflow: hidden;
 `;
 const Left = styled.div`
   width: 50%;

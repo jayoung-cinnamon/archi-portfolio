@@ -128,8 +128,8 @@ interface HoverProps {
   hovered: boolean;
 }
 const Wrapper = styled.div`
-  width: 100%;
-
+    width: 100%
+    height:100vh;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -159,23 +159,27 @@ const Title = styled.div`
 const Right = styled.div`
   width: 100%;
   /* height: 100%; */
-  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid blue;
   padding: 10px;
 `;
 
 const WorkList = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  /* justify-content: flex-start; */
   flex-wrap: wrap;
   /* border: 1px solid green; */
 `;
 
 const WorkComponent = styled.div<HoverProps>`
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   margin: 10px;
+  border: 1px solid blue;
   margin-bottom: 40px;
   ${(props) =>
     props.unHovered &&
@@ -198,7 +202,7 @@ const WorkSubTitle = styled.div`
   /* border: 1px solid blue; */
   font-size: 13px;
   font-weight: 300;
-  margin-top: 10px;
+  margin-top: 8px;
 `;
 
 const ImgContainer = styled.div`
