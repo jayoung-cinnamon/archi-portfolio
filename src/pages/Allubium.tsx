@@ -28,38 +28,40 @@ const Allubium = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <InfoContainer>
-            <InfoLeft>
-              <Title>{newList[0].title}</Title>
-              <SubTitle>{newList[0].subTitle}</SubTitle>
-            </InfoLeft>
-            <InfoRight>
-              <WorkDate>{newList[0].workDate}</WorkDate>
-              <Area>{newList[0].area}</Area>
-            </InfoRight>
-          </InfoContainer>
-          <ContentsContainer>
-            <TextContainer>{newList[0].detail}</TextContainer>
-            <ImgContainer>
-              <Img1
-                src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img1>
-              <Img2
-                src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img2>
-              <Img3
-                src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img3>
-              <Img4
-                src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img4>
-              <Img5
-                src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
-              ></Img5>
-            </ImgContainer>
-          </ContentsContainer>
-        </Container>
+        <Body>
+          <Container>
+            <InfoContainer>
+              <InfoLeft>
+                <Title>{newList[0].title}</Title>
+                <SubTitle>{newList[0].subTitle}</SubTitle>
+              </InfoLeft>
+              <InfoRight>
+                <WorkDate>{newList[0].workDate}</WorkDate>
+                <Area>{newList[0].area}</Area>
+              </InfoRight>
+            </InfoContainer>
+            <ContentsContainer>
+              <TextContainer>{newList[0].detail}</TextContainer>
+              <ImgContainer>
+                <Img1
+                  src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
+                ></Img1>
+                <Img2
+                  src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
+                ></Img2>
+                <Img3
+                  src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
+                ></Img3>
+                <Img4
+                  src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
+                ></Img4>
+                <Img5
+                  src={`${process.env.PUBLIC_URL}/project/${newList[0].thumbNail}`}
+                ></Img5>
+              </ImgContainer>
+            </ContentsContainer>
+          </Container>
+        </Body>
       </Wrapper>
     </>
   );
@@ -74,9 +76,22 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-direction: column;
   padding: 50px 0px 0px 0px;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  padding: 65px 0px 0px 0px;
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`

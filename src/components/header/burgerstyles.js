@@ -1,11 +1,13 @@
 const burgerstyles = {
   bmBurgerButton: {
+    // border: "1px solid red",
     display: "flex",
     position: "fixed",
     width: "24px",
     height: "20px",
     left: "20px",
     top: "23px",
+    zIndex: "9999",
   },
   bmBurgerBars: {
     background: "#FF6400",
@@ -17,8 +19,7 @@ const burgerstyles = {
     display: "flex",
     justifyCOntent: "center",
     alignItems: "center",
-    background: "#209fac",
-    // border: "1px solid black",
+    background: "black",
     left: "120px",
     top: "8px",
     height: "20px",
@@ -44,7 +45,7 @@ const burgerstyles = {
     padding: "2em",
     alignItems: "center",
     background: "white",
-    // border: "1px solid red",
+
     fontSize: "15px",
     top: "80px",
   },
@@ -57,7 +58,6 @@ const burgerstyles = {
   bmItem: {
     display: "flex",
     color: "#209FAC",
-
     marginBottom: "1em",
   },
   bmOverlay: {

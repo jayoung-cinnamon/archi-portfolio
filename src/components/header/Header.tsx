@@ -45,6 +45,13 @@ const Wrapper = styled.div`
   background-color: #ffffff;
 `;
 
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  padding: 20px;
+  display: flex;
+  border: 1px solid blue;
+`;
 const Container = styled.div`
   display: flex;
   height: 65px;

@@ -27,11 +27,6 @@ const Burger = () => {
 
 export default Burger;
 
-const MenuWrapper = styled.div`
-  width: 100%;
-  border: 1px solid blue;
-`;
-
 const MenuItem = styled.a`
   .bm-burger-bars {
     background: #373a47;

@@ -9,25 +9,25 @@ const AboutMain = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Left>
-            <ProfileImg></ProfileImg>
-          </Left>
-          <Right>
-            <Title>
-              <h1>Architect</h1> Designer
-            </Title>
-            <SubTitle>
-              <div>
-                <h1>정문영</h1>
-                <div>{`우리가 원하는 공간을 우리 스스로
-               얼마나 잘 표현해 낼 수 있을까요?
-              미처 알지 못했던 당신이 찾던 공간
-              함께 찾고 그려드립니다.`}</div>
-              </div>
-              <ProfileContainer>
-                <h3>
-                  {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
+        <Body>
+          <Container>
+            <Left>
+              <ProfileImg></ProfileImg>
+            </Left>
+            <Right>
+              <Title>
+                <h1>Architect</h1> Designer
+              </Title>
+              <SubTitle>
+                <div>
+                  <h1>정문영</h1>
+                  <div>{`미처 몰랐던 우리가 원하던 공간을 찾아내고,
+                  만들어 내는 건축 디자이너
+                   정문영 입니다.`}</div>
+                </div>
+                <ProfileContainer>
+                  {/* <h3>
+                    {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
                   Extra Work 부자이웃 사옥 인테리어 디자인 참여 Apr.2016
                   서울지역 건축대학연합 UAUS파빌리온 전시 Mar/Jun. 2014
                   Awards
@@ -36,28 +36,30 @@ const AboutMain = () => {
                   장려상 / 서울시 누리공간 만들기 2015
                   Special Mention /D3 Housing Tomorrow 2015
                   동상 / 9회 공중 화장실 설계 공모전`}
-                </h3>
-              </ProfileContainer>
-            </SubTitle>
-          </Right>
-          <Arrow>
-            <div
-              className="scroll-prompt"
-              scroll-prompt=""
-              ng-show="showPrompt"
-            >
-              <div className="scroll-prompt-arrow-container">
-                <div className="scroll-prompt-arrow">
-                  <div></div>
-                </div>
-                <div className="scroll-prompt-arrow">
-                  <div></div>
+                  </h3> */}
+                </ProfileContainer>
+              </SubTitle>
+            </Right>
+            <Arrow>
+              <div
+                className="scroll-prompt"
+                scroll-prompt=""
+                ng-show="showPrompt"
+              >
+                <div className="scroll-prompt-arrow-container">
+                  <div className="scroll-prompt-arrow">
+                    <div></div>
+                  </div>
+                  <div className="scroll-prompt-arrow">
+                    <div></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Arrow>
-        </Container>
+            </Arrow>
+          </Container>
+        </Body>
       </Wrapper>
+
       <Footer />
     </>
   );
@@ -68,11 +70,24 @@ export default AboutMain;
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
-  padding: 50px 20px 20px 20px;
+  /* padding: 50px 20px 20px 20px; */
   height: 100%;
 
   border: 1px solid red;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  padding: 65px 0px 0px 0px;
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`
@@ -127,7 +142,7 @@ const Title = styled.div`
   cursor: pointer;
   & h1 {
     color: #209fac;
-    margin-right: 15px;
+    margin-right: 18px;
   }
 `;
 

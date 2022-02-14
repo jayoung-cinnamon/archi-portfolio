@@ -10,29 +10,31 @@ const ThreeDModeling = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Left>
-            <Title>Apartment</Title>
-            <SubTitle>Designed for traveler</SubTitle>
-            <Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </Text>
-            <Thumbnail />
-          </Left>
-          <Right>
-            <GraphicText>그래픽을 마우스로 돌려보세요!</GraphicText>
-            <GraphicViewer />
-          </Right>
-        </Container>
+        <Body>
+          <Container>
+            <Left>
+              <Title>Apartment</Title>
+              <SubTitle>Designed for traveler</SubTitle>
+              <Text>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </Text>
+              <Thumbnail />
+            </Left>
+            <Right>
+              <GraphicText>그래픽을 마우스로 돌려보세요!</GraphicText>
+              <GraphicViewer />
+            </Right>
+          </Container>
+        </Body>
       </Wrapper>
       <Footer />
     </>
@@ -44,9 +46,22 @@ export default ThreeDModeling;
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-direction: column;
   padding: 50px 0 0 0;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  /* padding: 65px 0px 0px 0px; */
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`

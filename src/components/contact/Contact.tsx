@@ -9,42 +9,44 @@ const Contact = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Right>
-            <RightContainer>
-              <RightTitle>Contact Me</RightTitle>
-              <RightSubTitle>Let's work together!</RightSubTitle>
-            </RightContainer>
+        <Body>
+          <Container>
+            <Right>
+              <RightContainer>
+                <RightTitle>Contact Me</RightTitle>
+                <RightSubTitle>Let's work together!</RightSubTitle>
+              </RightContainer>
 
-            <SocialContainer>
-              <div>Find Me</div>
-              <IconContainer>
-                <SocialInsta />
-                <SocialMail />
-              </IconContainer>
-            </SocialContainer>
-          </Right>
+              <SocialContainer>
+                <div>Find Me</div>
+                <IconContainer>
+                  <SocialInsta />
+                  <SocialMail />
+                </IconContainer>
+              </SocialContainer>
+            </Right>
 
-          <Left>
-            <SendContainer>
-              <MailContainer>
-                <ContactTitle>You can contact me by email</ContactTitle>
-                <InputContainer>
-                  <MailTitle>Name</MailTitle>
-                  <MailInput></MailInput>
-                  <MailTitle>Company</MailTitle>
-                  <MailInput></MailInput>
-                </InputContainer>
-                <InputContainer>
-                  <MailTitle>E-mail</MailTitle>
-                  <MailInput2></MailInput2>
-                </InputContainer>
-              </MailContainer>
-              <ContentsInput></ContentsInput>
-              <SendBtn>Send Mail</SendBtn>
-            </SendContainer>
-          </Left>
-        </Container>
+            <Left>
+              <SendContainer>
+                <MailContainer>
+                  <ContactTitle>You can contact me by email</ContactTitle>
+                  <InputContainer>
+                    <MailTitle>Name</MailTitle>
+                    <MailInput></MailInput>
+                    <MailTitle>Company</MailTitle>
+                    <MailInput></MailInput>
+                  </InputContainer>
+                  <InputContainer>
+                    <MailTitle>E-mail</MailTitle>
+                    <MailInput2></MailInput2>
+                  </InputContainer>
+                </MailContainer>
+                <ContentsInput></ContentsInput>
+                <SendBtn>Send Mail</SendBtn>
+              </SendContainer>
+            </Left>
+          </Container>
+        </Body>
       </Wrapper>
       <Footer />
     </>
@@ -57,8 +59,21 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  padding: 50px 20px 20px 20px;
+  /* padding: 50px 20px 20px 20px; */
+  justify-content: center;
+  align-items: center;
   height: 100%;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  /* padding: 65px 0px 0px 0px; */
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`

@@ -1,62 +1,62 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { start } from "repl";
 import styled from "styled-components";
+import { useInterval } from "react-interval-hook";
 
 const MainPage = () => {
-  // var line = document.getElementById("line");
-  // var txts = [
-  //   "Typewriter using async/await",
-  //   "Write multiple lines",
-  //   "Change the txts array",
-  // ];
-  // var speed = 100;
+  type Title = {
+    title: string;
+  };
+  //메인텍스트
+  const [title, setTitle] = useState("Wake & Remake");
+  //메인텍스트 인덱스
+  const [titleIndex, setTitleIndex] = useState(1);
+  useEffect(() => {
+    start();
+    return () => {
+      stop();
+    };
+  }, []);
+  const { start, stop } = useInterval(
+    () => {
+      if (titleIndex < 3) {
+        setTitleIndex(titleIndex + 1);
+      } else {
+        setTitleIndex(1);
+      }
+    },
+    1200,
+    {
+      autoStart: true,
+      immediate: true,
+    }
+  );
+  useEffect(() => {
+    switch (titleIndex) {
+      case 1:
+        setTitle("Architect");
+        break;
+      case 2:
+        setTitle("Portfolio");
+        break;
+      case 3:
+        setTitle("Design");
+        break;
+      default:
+        break;
+    }
+  }, [titleIndex]);
 
-  // async function typewriter(txt) {
-  //   for (let i = 0; i < txt.length; i++) {
-  //     line.innerHTML += txt.charAt(i);
-  //     await delay(speed);
-  //   }
-  // }
-
-  // async function reverseTypewriter(txt) {
-  //   for (let i = txt.length; i > 0; i--) {
-  //     line.innerHTML = line.innerHTML.slice(0, -1);
-  //     await delay(speed);
-  //   }
-  // }
-
-  // async function writeLoop() {
-  //   for (let i = 0; i < txts.length; i++) {
-  //     await typewriter(txts[i]);
-  //     await delay(4000);
-  //     await reverseTypewriter(txts[i]);
-  //     await delay(1000);
-  //   }
-
-  //   writeLoop();
-  // }
-
-  // function delay(ms) {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve();
-  //     }, ms);
-  //   });
-  // }
-
-  // writeLoop();
   return (
     <Wrapper>
       <Body>
-        <TextContainer>
-          <MainTitle className="typeContainer">
-            <Line className="line"></Line>
-            <Cursor className="cursor"></Cursor>
-          </MainTitle>
-          <SubText></SubText>
-        </TextContainer>
+        <TextContainer>{title}</TextContainer>
         <ImageContainer>
           <MainImage />
         </ImageContainer>
+        <AboutBtn>
+          <a href="/about">About</a>
+        </AboutBtn>
       </Body>
     </Wrapper>
   );
@@ -64,9 +64,6 @@ const MainPage = () => {
 
 export default MainPage;
 
-const Line = styled.p`
-  position: relative;
-`;
 const Cursor = styled.div`
   .cursor {
     height: 2rem;
@@ -99,17 +96,19 @@ const Wrapper = styled.div`
 `;
 
 const Body = styled.div`
-  width: 100%;
+  width: 1080px;
   color: black;
   padding: 20px;
   display: flex;
+  position: relative;
 `;
 
 const MainTitle = styled.div`
-  display: flex;
-  font-size: 100px;
   font-weight: 800;
-  color: #d50404;
+  color: black;
+  top: 0px;
+  left: 100px;
+
   cursor: pointer;
   .typeContainer {
     position: relative;
@@ -141,14 +140,26 @@ const TiltText = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: 50%;
+  width: 500px;
+  height: 60px;
+  position: absolute;
+  top: 350px;
+  left: 400px;
+  border: 1px solid black;
+  /* left: 500px;
+  top: 350px; */
+  z-index: 9999;
+  background-color: white;
   display: flex;
-  flex-direction: column;
-  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  padding-top: 5px;
 `;
 
 const ImageContainer = styled.div`
-  width: 50%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,5 +174,19 @@ const MainImage = styled.div`
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  background-position: 30px 80px;
+  background-position: 90px 50px;
+`;
+
+const AboutBtn = styled.div`
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #ff6400;
+  z-index: 999;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  color: #209fac;
 `;

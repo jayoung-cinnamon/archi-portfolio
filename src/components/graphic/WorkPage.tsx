@@ -73,45 +73,47 @@ const WorkPage = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Left>
-            <Title>Projects</Title>
+        <Body>
+          <Container>
+            <Left>
+              <Title>Projects</Title>
 
-            <select onChange={handleSelect} value={selected}>
-              {selectList.map((item) => (
-                <option value={item.value} key={item.value}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-          </Left>
-          <Right>
-            <WorkList>
-              {newList.map((item, index) => (
-                <Link to={item.url} key={index}>
-                  <WorkComponent
-                    key={index}
-                    unHovered={hover !== null && hover !== index}
-                    hovered={hover === index}
-                    onMouseOver={() => setHover(index)}
-                    onMouseOut={() => setHover(20)}
-                  >
-                    <ImgContainer>
-                      <ThumbNailWrapper
-                        src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
-                      ></ThumbNailWrapper>
-                    </ImgContainer>
+              <select onChange={handleSelect} value={selected}>
+                {selectList.map((item) => (
+                  <option value={item.value} key={item.value}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </Left>
+            <Right>
+              <WorkList>
+                {newList.map((item, index) => (
+                  <Link to={item.url} key={index}>
+                    <WorkComponent
+                      key={index}
+                      unHovered={hover !== null && hover !== index}
+                      hovered={hover === index}
+                      onMouseOver={() => setHover(index)}
+                      onMouseOut={() => setHover(20)}
+                    >
+                      <ImgContainer>
+                        <ThumbNailWrapper
+                          src={`${process.env.PUBLIC_URL}/project/${item.thumbNail}`}
+                        ></ThumbNailWrapper>
+                      </ImgContainer>
 
-                    <WorkTitle>{item.title}</WorkTitle>
-                    <WorkSubTitle>{item.subTitle}</WorkSubTitle>
-                  </WorkComponent>
-                </Link>
-              ))}
-            </WorkList>
-          </Right>
-        </Container>
+                      <WorkTitle>{item.title}</WorkTitle>
+                      <WorkSubTitle>{item.subTitle}</WorkSubTitle>
+                    </WorkComponent>
+                  </Link>
+                ))}
+              </WorkList>
+            </Right>
+          </Container>
+        </Body>
+        <Footer />
       </Wrapper>
-      <Footer />
     </>
   );
 };
@@ -128,12 +130,26 @@ interface HoverProps {
   hovered: boolean;
 }
 const Wrapper = styled.div`
-    width: 100%
-    height:100vh;
+  width: 100%;
+  /* height: 100vh; */
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-direction: column;
-  padding: 50px 0px 0px 0px;
+
+  /* border: 1px solid red; */
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  padding: 65px 0px 0px 0px;
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`
@@ -162,7 +178,7 @@ const Right = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 10px;
 `;
 
@@ -176,10 +192,10 @@ const WorkList = styled.div`
 `;
 
 const WorkComponent = styled.div<HoverProps>`
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   margin: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-bottom: 40px;
   ${(props) =>
     props.unHovered &&
