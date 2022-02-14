@@ -139,7 +139,7 @@ const Bar = styled.div`
   @keyframes fill {
     100% {
       background: linear-gradient(to left, #ffffff75);
-      width: 0%;
+      width: 100%;
     }
     /* 50% {
       background: linear-gradient(to left, #c2c2c2, #cfcfcf44);
@@ -147,7 +147,7 @@ const Bar = styled.div`
     } */
     0% {
       background: linear-gradient(to left, #ffffff7e);
-      width: 100%;
+      width: 30%;
     }
   }
 `;
@@ -205,7 +205,7 @@ const AboutBtn = styled.div`
     font-size: 15px;
     /* background: #209eac40; */
     color: #5e5e5e;
-    border: 1px solid #5e5e5e;
+    border: 1px solid #8f8f8f;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
