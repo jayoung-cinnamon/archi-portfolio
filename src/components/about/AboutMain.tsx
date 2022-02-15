@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 const AboutMain = () => {
+  const timeLineRef = useRef<HTMLDivElement>(null);
+  const timeLineClick = () => {
+    timeLineRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -58,12 +63,12 @@ const AboutMain = () => {
                 </div>
               </Arrow> */}
               <NextBtn>
-                <a className="button" href="/about">
+                <a onClick={timeLineClick} className="button">
                   Time-line
                 </a>
               </NextBtn>
             </Component>
-            <Component>
+            <Component ref={timeLineRef}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non illo
               quasi natus ratione fuga cum quis temporibus. Corporis temporibus
               culpa sint dignissimos nulla impedit quis? Cupiditate suscipit
@@ -97,20 +102,23 @@ const Body = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-
+  overflow-y: hidden;
   padding: 65px 0px 0px 0px;
 `;
 
 const Container = styled.div`
   width: 1080px;
+  height: 100%;
   display: flex;
   white-space: nowrap;
+  overflow-y: hidden;
   overflow-x: scroll !important;
 `;
 
 const Component = styled.div`
   width: 100% !important;
-  /* height: 100%; */
+  /* height: 100vh; */
+  /* overflow-y: hidden; */
   display: flex;
   border: 1px solid green;
   position: relative;
