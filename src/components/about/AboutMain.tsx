@@ -478,13 +478,18 @@ const NextBtn = styled.div`
   .button::after {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 13px;
-    right: 8px;
-    top: 10px;
-    background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
-      no-repeat center/cover;
+    width: 9px;
+    height: 9px;
+
+    right: 0px;
+    top: 13px;
+    /* background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover; */
     opacity: 0;
+
+    transform: rotate(45deg);
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
     transition: opacity 0.5s, right 0.3s;
   }
 
@@ -585,19 +590,22 @@ const PrevBtn = styled.div`
   .button:hover {
     background: #209eac40;
     color: black;
-    padding-right: 35px;
+    padding-left: 35px;
   }
 
   .button::after {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 13px;
-    right: 8px;
-    top: 10px;
-    background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
-      no-repeat center/cover;
+    width: 9px;
+    height: 9px;
+    left: 13px;
+    top: 13px;
+    /* background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover; */
     opacity: 0;
+    transform: rotate(-135deg);
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
     transition: opacity 0.5s, right 0.3s;
   }
 
