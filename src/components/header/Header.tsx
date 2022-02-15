@@ -6,11 +6,12 @@ const Header = () => {
   return (
     <Wrapper>
       <Container>
-        <Burger />
-        <Link to="/">
-          <Title>Jeong Moon-young</Title>
-        </Link>
-        {/* <MenuContainer>
+        <Body>
+          <Burger />
+          <Link to="/">
+            <Title>Jeong Moon-young</Title>
+          </Link>
+          {/* <MenuContainer>
           <Link to="/about">
             <Menu>About</Menu>
           </Link>
@@ -30,7 +31,8 @@ const Header = () => {
             <Logo>M</Logo>
           </Link>
         </MenuContainer> */}
-        <Logo>M</Logo>
+          <Logo>M</Logo>
+        </Body>
       </Container>
     </Wrapper>
   );
@@ -47,17 +49,19 @@ const Wrapper = styled.div`
 
 const Body = styled.div`
   width: 1080px;
+  display: flex;
+  justify-content: space-between;
   color: black;
   padding: 20px;
   display: flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
 const Container = styled.div`
   display: flex;
   height: 65px;
   padding: 20px;
   border: 1px solid grey;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   box-sizing: border-box;

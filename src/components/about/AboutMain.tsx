@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
@@ -11,23 +11,24 @@ const AboutMain = () => {
       <Wrapper>
         <Body>
           <Container>
-            <Left>
-              <ProfileImg></ProfileImg>
-            </Left>
-            <Right>
-              <Title>
-                <h1>Architect</h1> Designer
-              </Title>
-              <SubTitle>
-                <div>
-                  <h1>정문영</h1>
-                  <div>{`미처 몰랐던 우리가 원하던 공간을 찾아내고,
+            <Component>
+              <Left>
+                <ProfileImg></ProfileImg>
+              </Left>
+              <Right>
+                <Title>
+                  <h1>Architect</h1> Designer
+                </Title>
+                <SubTitle>
+                  <div>
+                    <h1>정문영</h1>
+                    <div>{`미처 몰랐던 우리가 원하던 공간을 찾아내고,
                   만들어 내는 건축 디자이너
                    정문영 입니다.`}</div>
-                </div>
-                <ProfileContainer>
-                  {/* <h3>
-                    {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
+                  </div>
+                  <ProfileContainer>
+                    {/* <h3>
+                      {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
                   Extra Work 부자이웃 사옥 인테리어 디자인 참여 Apr.2016
                   서울지역 건축대학연합 UAUS파빌리온 전시 Mar/Jun. 2014
                   Awards
@@ -36,26 +37,38 @@ const AboutMain = () => {
                   장려상 / 서울시 누리공간 만들기 2015
                   Special Mention /D3 Housing Tomorrow 2015
                   동상 / 9회 공중 화장실 설계 공모전`}
-                  </h3> */}
-                </ProfileContainer>
-              </SubTitle>
-            </Right>
-            <Arrow>
-              <div
-                className="scroll-prompt"
-                scroll-prompt=""
-                ng-show="showPrompt"
-              >
-                <div className="scroll-prompt-arrow-container">
-                  <div className="scroll-prompt-arrow">
-                    <div></div>
-                  </div>
-                  <div className="scroll-prompt-arrow">
-                    <div></div>
+                    </h3> */}
+                  </ProfileContainer>
+                </SubTitle>
+              </Right>
+              {/* <Arrow>
+                <div
+                  className="scroll-prompt"
+                  scroll-prompt=""
+                  ng-show="showPrompt"
+                >
+                  <div className="scroll-prompt-arrow-container">
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Arrow>
+              </Arrow> */}
+              <NextBtn>
+                <a className="button" href="/about">
+                  Time-line
+                </a>
+              </NextBtn>
+            </Component>
+            <Component>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non illo
+              quasi natus ratione fuga cum quis temporibus. Corporis temporibus
+              culpa sint dignissimos nulla impedit quis? Cupiditate suscipit
+              dolorem voluptate aut.
+            </Component>
           </Container>
         </Body>
       </Wrapper>
@@ -68,70 +81,71 @@ const AboutMain = () => {
 export default AboutMain;
 
 const Wrapper = styled.div`
-  width: 100%;
+  /* width: 100vw; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  /* padding: 50px 20px 20px 20px; */
-  height: 100%;
-
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 const Body = styled.div`
   width: 1080px;
+  height: 100vh;
   color: black;
-  /* height: 100vh; */
-  /* padding: 20px; */
-  /* display: flex; */
+  display: flex;
+  position: relative;
+  justify-content: center;
+
   padding: 65px 0px 0px 0px;
-  /* border: 1px solid blue; */
-  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`
-  width: 100%;
-  height: 90vh;
-  font-size: 100px;
+  width: 1080px;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid green;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: scroll !important;
 `;
+
+const Component = styled.div`
+  width: 100% !important;
+  /* height: 100%; */
+  display: flex;
+  border: 1px solid green;
+  position: relative;
+`;
+
 const Left = styled.div`
-  width: 50%;
-  height: 100%;
+  width: ;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-top: 10px;
-  margin-top: 10px;
-  border: 1px solid blue;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid blue; */
 `;
 const ProfileImg = styled.div`
-  width: 500px;
-  height: 100%;
+  width: 270px;
+  height: 270px;
   background-image: url("./images/profile.jpg");
   filter: grayscale(100%);
   background-repeat: no-repeat;
-  background-size: contain;
-  top: 70px;
+  background-position: 80% 0%;
+  background-size: cover;
+  margin-bottom: 90px;
 `;
 
 const Right = styled.div`
-  width: 50%;
-  /* height: 100%; */
+  width: 1080px;
+  /* border: 1px solid blue; */
+  margin-left: 300px;
   display: flex;
   text-align: right;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 60px;
   align-items: center;
-  border: 1px solid red;
 `;
 
 const Title = styled.div`
@@ -304,4 +318,56 @@ const TimeLineContainer = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+`;
+const NextBtn = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  bottom: 100px;
+  right: 50px;
+  color: #209fac;
+  a {
+    text-decoration: none;
+    color: #616161;
+  }
+
+  .button {
+    min-width: 100px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 15px;
+    /* background: #209eac40; */
+    color: #5e5e5e;
+    border: 1px solid #8f8f8f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .button:hover {
+    background: #209eac40;
+    color: black;
+    padding-right: 35px;
+  }
+
+  .button::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 13px;
+    right: 8px;
+    top: 10px;
+    background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover;
+    opacity: 0;
+    transition: opacity 0.5s, right 0.3s;
+  }
+
+  .button:hover::after {
+    opacity: 1;
+    right: 20px;
+  }
 `;

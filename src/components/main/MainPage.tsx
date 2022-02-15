@@ -25,7 +25,7 @@ const MainPage = () => {
         setTitleIndex(1);
       }
     },
-    2000,
+    1000,
     {
       autoStart: true,
       immediate: true,
@@ -110,7 +110,7 @@ const TiltText = styled.div`
 `;
 
 const Bar = styled.div`
-  /* width: 500px; */
+  width: 440px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -123,31 +123,43 @@ const Bar = styled.div`
   border: 1px solid #cfcfcf44;
   background-color: white;
   color: black;
-  &.titleIndex1 {
-    animation: fill 2s infinite;
+  /* &.titleIndex1 {
+    animation: fill 1s infinite;
   }
   &.titleIndex2 {
-    animation: fill 2s infinite;
+    animation: fill 1s infinite;
   }
   &.titleIndex3 {
-    animation: fill 2s infinite;
+    animation: fill 1s infinite;
   }
   &.titleIndex4 {
-    animation: fill 2s infinite;
-  }
+    animation: fill 1s infinite;
+  } */
 
   @keyframes fill {
     100% {
       background: linear-gradient(to left, #ffffff75);
-      width: 100%;
+      width: 30%;
     }
-    /* 50% {
-      background: linear-gradient(to left, #c2c2c2, #cfcfcf44);
+    /* 80% {
+      background: linear-gradient(to left, #ffffff75);
+      width: 40%;
+    }
+    70% {
+      background: linear-gradient(to left, #ffffff75);
+      width: 50%;
+    }
+    50% {
+      background: linear-gradient(to left, #ffffff75);
+      width: 70%;
+    }
+    30% {
+      background: linear-gradient(to left, #ffffff75);
       width: 90%;
     } */
     0% {
       background: linear-gradient(to left, #ffffff7e);
-      width: 30%;
+      width: 100%;
     }
   }
 `;
@@ -213,7 +225,7 @@ const AboutBtn = styled.div`
   }
 
   .button:hover {
-    background: white;
+    background: #209eac40;
     color: black;
     padding-right: 35px;
   }
