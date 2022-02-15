@@ -12,7 +12,7 @@ const ThreeDModeling = () => {
       <Wrapper>
         <Body>
           <Container>
-            <Left>
+            {/* <Left>
               <Title>Apartment</Title>
               <SubTitle>Designed for traveler</SubTitle>
               <Text>
@@ -32,7 +32,13 @@ const ThreeDModeling = () => {
             <Right>
               <GraphicText>그래픽을 마우스로 돌려보세요!</GraphicText>
               <GraphicViewer />
-            </Right>
+            </Right> */}
+            <GraphicWrapper>
+              <GraphicText>Title</GraphicText>
+              <GraphicContainer>
+                <GraphicViewer />
+              </GraphicContainer>
+            </GraphicWrapper>
           </Container>
         </Body>
       </Wrapper>
@@ -116,6 +122,25 @@ const Thumbnail = styled.div`
 `;
 
 const GraphicText = styled.div`
+  /* margin-top: 30px; */
+  font-size: 20px;
   margin-top: 30px;
-  font-size: 15px;
+  font-weight: 500;
+  color: #209fac;
+`;
+
+const GraphicWrapper = styled.div`
+  width: 1080px;
+  height: 100vh;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+`;
+
+const GraphicContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  /* border: 1px solid red; */
 `;
