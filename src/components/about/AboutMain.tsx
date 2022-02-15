@@ -83,18 +83,48 @@ const AboutMain = () => {
                 <DashedLine>
                   <div>
                     <p>2013</p>
+                    <ul>
+                      <li>triangle Glass Box</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2014</p>
+                    <ul>
+                      <li>Allubium_충적지</li>
+                      <li>공중화장실 설계공모전 동상</li>
+                      <li>마당깊은집</li>
+                      <li>Energy Cube</li>
+                      <li>UAUS 파빌리온 전시</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2015</p>
+                    <ul>
+                      <li>{`D3 Housing Tomorrow /Specail mention`}</li>
+                      <li>IUAV Workshop</li>
+                      <li>Nest of Artist</li>
+                      <li>서울시 누리공간 만들기/ 장려상</li>
+                      <li>사직 사회적 기업마을</li>
+                      <li>차세대 문화공간 공모전/ 특선</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2016</p>
+                    <ul>
+                      <li>부자이웃 사옥 인테리어 참여</li>
+                      <li>청소년 건축동아리 아키네이져 지도자</li>
+                      <li>삼우 실습생</li>
+                      <li>정림 실습생</li>
+                      <li>SKM 실습생</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2017</p>
+                    <ul>
+                      <li>대학생_일상을 마주하다</li>
+                      <li>정림 학생 건축상/ 입선</li>
+                      <li>Facileum</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2018</p>
@@ -117,18 +147,31 @@ const AboutMain = () => {
                 <DashedLine>
                   <div>
                     <p>2018</p>
+                    <ul>
+                      <li>건축설계사무소 입사</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2019</p>
                   </div>
                   <div>
                     <p>2020</p>
+                    <ul>
+                      <li>Sketchup 튜터링</li>
+                      <li>웹툰 배경 제작 모델링 참여</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2021</p>
+                    <ul>
+                      <li>Sketchup 튜터링</li>
+                    </ul>
                   </div>
                   <div>
                     <p>2022</p>
+                    <ul>
+                      <li>포트폴리오 웹사이트 제작</li>
+                    </ul>
                   </div>
                   <div>
                     <p>AND</p>
@@ -481,6 +524,17 @@ const DashedLine = styled.div`
     position: absolute;
     top: -20px;
     right: -12px;
+  }
+  div > ul {
+    margin-top: 20px;
+    width: 120px;
+    /* border: 1px solid red; */
+    font-size: 12px;
+    white-space: pre-line;
+  }
+  div > ul > li {
+    margin: 5px;
+    list-style-type: circle;
   }
   div:nth-child(2) {
     left: calc(100% / 5);
