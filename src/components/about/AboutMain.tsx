@@ -80,7 +80,26 @@ const AboutMain = () => {
             </Component>
             <Component ref={timeLineRef}>
               <TimeLineBox2>
-                <DashedLine></DashedLine>
+                <DashedLine>
+                  <div>
+                    <p>2013</p>
+                  </div>
+                  <div>
+                    <p>2014</p>
+                  </div>
+                  <div>
+                    <p>2015</p>
+                  </div>
+                  <div>
+                    <p>2016</p>
+                  </div>
+                  <div>
+                    <p>2017</p>
+                  </div>
+                  <div>
+                    <p>2018</p>
+                  </div>
+                </DashedLine>
                 <PrevBtn>
                   <a onClick={aboutClick} className="button">
                     Prev
@@ -95,7 +114,26 @@ const AboutMain = () => {
             </Component>
             <Component ref={nextRef}>
               <TimeLineBox2>
-                <DashedLine></DashedLine>
+                <DashedLine>
+                  <div>
+                    <p>2018</p>
+                  </div>
+                  <div>
+                    <p>2019</p>
+                  </div>
+                  <div>
+                    <p>2020</p>
+                  </div>
+                  <div>
+                    <p>2021</p>
+                  </div>
+                  <div>
+                    <p>2022</p>
+                  </div>
+                  <div>
+                    <p>AND</p>
+                  </div>
+                </DashedLine>
 
                 <PrevBtn>
                   <a onClick={timeLineClick} className="button">
@@ -133,6 +171,7 @@ const Body = styled.div`
   position: relative;
   justify-content: center;
   overflow-y: hidden;
+
   padding: 65px 0px 0px 0px;
 `;
 
@@ -424,10 +463,40 @@ const TimeLineBox2 = styled.div`
   align-items: center;
 `;
 
-const DashedLine = styled.hr`
-  width: 1000px;
-
+const DashedLine = styled.div`
+  width: 90%;
   border-top: 2px dashed gray;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  div {
+    width: 10px;
+    height: 10px;
+    background-color: #ff6400;
+    top: -5px;
+    border-radius: 100%;
+    position: absolute;
+  }
+  div > p {
+    position: absolute;
+    top: -20px;
+    right: -12px;
+  }
+  div:nth-child(2) {
+    left: calc(100% / 5);
+  }
+  div:nth-child(3) {
+    left: calc((100% / 5) * 2);
+  }
+  div:nth-child(4) {
+    left: calc((100% / 5) * 3);
+  }
+  div:nth-child(5) {
+    left: calc((100% / 5) * 4);
+  }
+  div:nth-child(6) {
+    right: 0;
+  }
 `;
 
 const PrevBtn = styled.div`
