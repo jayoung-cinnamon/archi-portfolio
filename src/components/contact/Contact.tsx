@@ -67,13 +67,8 @@ const Wrapper = styled.div`
 
 const Body = styled.div`
   width: 1080px;
+  height: 100vh;
   color: black;
-  /* height: 100vh; */
-  /* padding: 20px; */
-  /* display: flex; */
-  /* padding: 65px 0px 0px 0px; */
-  /* border: 1px solid blue; */
-  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`
