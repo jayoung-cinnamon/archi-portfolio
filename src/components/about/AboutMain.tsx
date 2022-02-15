@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { createRef, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
@@ -8,7 +8,15 @@ const AboutMain = () => {
   const timeLineClick = () => {
     timeLineRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const aboutClick = () => {
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
+  const nextRef = useRef<HTMLDivElement>(null);
+  const nextClick = () => {
+    nextRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <GlobalStyle />
@@ -16,23 +24,24 @@ const AboutMain = () => {
       <Wrapper>
         <Body>
           <Container>
-            <Component>
-              <Left>
-                <ProfileImg></ProfileImg>
-              </Left>
-              <Right>
-                <Title>
-                  <h1>Architect</h1> Designer
-                </Title>
-                <SubTitle>
-                  <div>
-                    <h1>정문영</h1>
-                    <div>{`미처 몰랐던 우리가 원하던 공간을 찾아내고,
+            <Component ref={aboutRef}>
+              <TimeLineBox>
+                <Left>
+                  <ProfileImg></ProfileImg>
+                </Left>
+                <Right>
+                  <Title>
+                    <h1>Architect</h1> Designer
+                  </Title>
+                  <SubTitle>
+                    <div>
+                      <h1>정문영</h1>
+                      <div>{`미처 몰랐던 우리가 원하던 공간을 찾아내고,
                   만들어 내는 건축 디자이너
                    정문영 입니다.`}</div>
-                  </div>
-                  <ProfileContainer>
-                    {/* <h3>
+                    </div>
+                    <ProfileContainer>
+                      {/* <h3>
                       {`Education 명지대학교 건축대학 건축학부 건축학 전공 2018졸업
                   Extra Work 부자이웃 사옥 인테리어 디자인 참여 Apr.2016
                   서울지역 건축대학연합 UAUS파빌리온 전시 Mar/Jun. 2014
@@ -43,10 +52,15 @@ const AboutMain = () => {
                   Special Mention /D3 Housing Tomorrow 2015
                   동상 / 9회 공중 화장실 설계 공모전`}
                     </h3> */}
-                  </ProfileContainer>
-                </SubTitle>
-              </Right>
-              {/* <Arrow>
+                    </ProfileContainer>
+                  </SubTitle>
+                  <NextBtn>
+                    <a onClick={timeLineClick} className="button">
+                      Time-line
+                    </a>
+                  </NextBtn>
+                </Right>
+                {/* <Arrow>
                 <div
                   className="scroll-prompt"
                   scroll-prompt=""
@@ -62,17 +76,33 @@ const AboutMain = () => {
                   </div>
                 </div>
               </Arrow> */}
-              <NextBtn>
-                <a onClick={timeLineClick} className="button">
-                  Time-line
-                </a>
-              </NextBtn>
+              </TimeLineBox>
             </Component>
             <Component ref={timeLineRef}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non illo
-              quasi natus ratione fuga cum quis temporibus. Corporis temporibus
-              culpa sint dignissimos nulla impedit quis? Cupiditate suscipit
-              dolorem voluptate aut.
+              <TimeLineBox2>
+                <DashedLine></DashedLine>
+                <PrevBtn>
+                  <a onClick={aboutClick} className="button">
+                    Prev
+                  </a>
+                </PrevBtn>
+                <NextBtn>
+                  <a onClick={nextClick} className="button">
+                    Next
+                  </a>
+                </NextBtn>
+              </TimeLineBox2>
+            </Component>
+            <Component ref={nextRef}>
+              <TimeLineBox2>
+                <DashedLine></DashedLine>
+
+                <PrevBtn>
+                  <a onClick={timeLineClick} className="button">
+                    Prev
+                  </a>
+                </PrevBtn>
+              </TimeLineBox2>
             </Component>
           </Container>
         </Body>
@@ -120,12 +150,12 @@ const Component = styled.div`
   /* height: 100vh; */
   /* overflow-y: hidden; */
   display: flex;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   position: relative;
 `;
 
 const Left = styled.div`
-  width: ;
+  width: 40%;
   /* height: 100%; */
   display: flex;
   flex-direction: column;
@@ -145,9 +175,10 @@ const ProfileImg = styled.div`
 `;
 
 const Right = styled.div`
-  width: 1080px;
+  width: 60%;
+  /* width: 1080px; */
   /* border: 1px solid blue; */
-  margin-left: 300px;
+  /* margin-left: 300px; */
   display: flex;
   text-align: right;
   justify-content: center;
@@ -335,6 +366,79 @@ const NextBtn = styled.div`
   position: absolute;
   bottom: 100px;
   right: 50px;
+  cursor: pointer;
+  color: #209fac;
+  a {
+    text-decoration: none;
+    color: #616161;
+  }
+
+  .button {
+    min-width: 100px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 15px;
+    /* background: #209eac40; */
+    color: #5e5e5e;
+    border: 1px solid #8f8f8f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .button:hover {
+    background: #209eac40;
+    color: black;
+    padding-right: 35px;
+  }
+
+  .button::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 13px;
+    right: 8px;
+    top: 10px;
+    background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover;
+    opacity: 0;
+    transition: opacity 0.5s, right 0.3s;
+  }
+
+  .button:hover::after {
+    opacity: 1;
+    right: 20px;
+  }
+`;
+
+const TimeLineBox = styled.div`
+  width: 1080px;
+  /* border: 1px solid red; */
+  display: flex;
+`;
+const TimeLineBox2 = styled.div`
+  width: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DashedLine = styled.hr`
+  width: 1000px;
+
+  border-top: 2px dashed gray;
+`;
+
+const PrevBtn = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  bottom: 100px;
+  left: 0px;
+  cursor: pointer;
   color: #209fac;
   a {
     text-decoration: none;
