@@ -78,8 +78,11 @@ const WorkPage = () => {
           <Container>
             <Left>
               <Title>Projects</Title>
-
-              <select onChange={handleSelect} value={selected}>
+              <select
+                className="select"
+                onChange={handleSelect}
+                value={selected}
+              >
                 {selectList.map((item) => (
                   <option value={item.value} key={item.value}>
                     {item.name}
@@ -167,7 +170,12 @@ const Left = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
+  .select {
+    border-radius: 0;
+    border: 1px solid grey;
+    font-size: 12px;
+    height: 23px;
+  }
 `;
 
 const Title = styled.div`
@@ -243,4 +251,12 @@ const ThumbNailWrapper = styled.div<SrcProps>`
       transform: scale(1.1);
     }
   }
+`;
+
+const SelectBox = styled.div`
+  width: 180px;
+  font-size: 12px;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: flex-end;
 `;
