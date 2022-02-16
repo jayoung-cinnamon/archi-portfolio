@@ -53,14 +53,14 @@ const MainPage = () => {
   return (
     <Wrapper>
       <Body>
-        <TextContainer>
-          <TiltText>
-            {title}
-            <Bar className={`titleIndex${titleIndex}`}></Bar>
-          </TiltText>
-        </TextContainer>{" "}
         <ImageContainer>
           <MainImage />
+          <TextContainer>
+            <TiltText>
+              {title}
+              <Bar className={`titleIndex${titleIndex}`}></Bar>
+            </TiltText>
+          </TextContainer>
         </ImageContainer>
         <AboutBtn>
           <div>
@@ -105,9 +105,9 @@ const TiltText = styled.div`
   align-items: center;
   padding-top: 15px;
   /* width: 0; */
-  position: relative;
+  position: absolute;
 
-  /* left: 0; */
+  left: 250px;
   z-index: 9999;
 `;
 
@@ -167,7 +167,7 @@ const Bar = styled.div`
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
+  /* position: absolute; */
   top: 350px;
   right: 450px;
   /* border: 1px solid black; */

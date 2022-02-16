@@ -51,6 +51,7 @@ const Body = styled.div`
   width: 1080px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: black;
   padding: 20px;
   display: flex;
