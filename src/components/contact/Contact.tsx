@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+// import emailjs from "@emailjs/browser";
+import { init } from "emailjs-com";
+import { send } from "emailjs-com";
+import ContactUs from "./Email";
+
 const Contact = () => {
   return (
     <>
@@ -27,7 +32,7 @@ const Contact = () => {
             </Right>
 
             <Left>
-              <SendContainer>
+              {/* <SendContainer>
                 <MailContainer>
                   <ContactTitle>You can contact me by email</ContactTitle>
                   <InputContainer>
@@ -43,7 +48,8 @@ const Contact = () => {
                 </MailContainer>
                 <ContentsInput></ContentsInput>
                 <SendBtn>Send Mail</SendBtn>
-              </SendContainer>
+              </SendContainer> */}
+              <ContactUs></ContactUs>
             </Left>
           </Container>
         </Body>
