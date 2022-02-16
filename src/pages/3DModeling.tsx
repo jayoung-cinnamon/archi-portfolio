@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import GlobalStyle from "../styles/GlobalStyles";
 import GraphicViewer from "../components/graphicViewer/GraphicViewer";
 const ThreeDModeling = () => {
+  const firstRef = useRef<HTMLDivElement>(null);
+  const firstRefClick = () => {
+    firstRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const secondRef = useRef<HTMLDivElement>(null);
+  const secondRefClick = () => {
+    secondRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const thirdRef = useRef<HTMLDivElement>(null);
+  const thirdRefClick = () => {
+    thirdRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <GlobalStyle />
@@ -34,10 +47,19 @@ const ThreeDModeling = () => {
               <GraphicViewer />
             </Right> */}
             <GraphicWrapper>
-              <GraphicText>Title</GraphicText>
-              <GraphicContainer>
+              <GraphicContainer ref={firstRef}>
+                <GraphicText>Title</GraphicText>
+
                 <GraphicViewer />
               </GraphicContainer>
+              {/* <GraphicContainer ref={secondRef}>
+                <GraphicText>Title2</GraphicText>
+                <GraphicViewer />
+              </GraphicContainer>
+              <GraphicContainer ref={thirdRef}>
+                <GraphicText>Title3</GraphicText>
+                <GraphicViewer />
+              </GraphicContainer> */}
             </GraphicWrapper>
           </Container>
         </Body>
@@ -123,24 +145,33 @@ const Thumbnail = styled.div`
 
 const GraphicText = styled.div`
   /* margin-top: 30px; */
+  width: 80%;
   font-size: 20px;
   margin-top: 30px;
+  margin-bottom: 20px;
   font-weight: 500;
   color: #209fac;
+  /* border: 1px solid red; */
 `;
 
 const GraphicWrapper = styled.div`
   width: 1080px;
   height: 100vh;
-  /* border: 1px solid red; */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  overflow-y: hidden;
   justify-content: space-between;
   align-items: start;
+  /* border: 1px solid blue; */
 `;
 
 const GraphicContainer = styled.div`
   width: 100%;
   height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
   /* border: 1px solid red; */
 `;

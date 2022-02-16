@@ -48,6 +48,7 @@ const WorkPage = () => {
     subTitle: string;
     subImage: string;
     thumbNail: string;
+    img02: string;
     url: string;
     detail: string;
     regDate: string;
