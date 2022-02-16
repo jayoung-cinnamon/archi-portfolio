@@ -132,7 +132,7 @@ interface HoverProps {
 }
 const Wrapper = styled.div`
   width: 100%;
-  /* height: 100vh; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +145,7 @@ const Wrapper = styled.div`
 const Body = styled.div`
   width: 1080px;
   color: black;
-  /* height: 100vh; */
+  height: 100vh;
   /* padding: 20px; */
   /* display: flex; */
   padding: 65px 0px 0px 0px;
