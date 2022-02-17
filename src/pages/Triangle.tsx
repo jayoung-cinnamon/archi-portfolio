@@ -159,8 +159,8 @@ const InfoRight = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-bottom: 10px;
 `;
-
 const ContentsContainer = styled.div`
   width: 100%;
   height: 100%;
