@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
+import Footer from "../footer/Footer";
+// import emailjs from "@emailjs/browser";
+import { init } from "emailjs-com";
+import { send } from "emailjs-com";
+import ContactUs from "./Email";
 
 const Contact = () => {
   return (
@@ -9,43 +14,47 @@ const Contact = () => {
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Right>
-            <RightContainer>
-              <RightTitle>Contact Me</RightTitle>
-              <RightSubTitle>Let's work together!</RightSubTitle>
-            </RightContainer>
+        <Body>
+          <Container>
+            <Right>
+              <RightContainer>
+                <RightTitle>Contact Me</RightTitle>
+                <RightSubTitle>Let's work together!</RightSubTitle>
+              </RightContainer>
 
-            <SocialContainer>
-              <div>Find Me</div>
-              <IconContainer>
-                <SocialInsta />
-                <SocialMail />
-              </IconContainer>
-            </SocialContainer>
-          </Right>
+              <SocialContainer>
+                <div>Find Me</div>
+                <IconContainer>
+                  <SocialInsta />
+                  <SocialMail />
+                </IconContainer>
+              </SocialContainer>
+            </Right>
 
-          <Left>
-            <SendContainer>
-              <MailContainer>
-                <ContactTitle>You can contact me by email</ContactTitle>
-                <InputContainer>
-                  <MailTitle>Name</MailTitle>
-                  <MailInput></MailInput>
-                  <MailTitle>Company</MailTitle>
-                  <MailInput></MailInput>
-                </InputContainer>
-                <InputContainer>
-                  <MailTitle>E-mail</MailTitle>
-                  <MailInput></MailInput>
-                </InputContainer>
-              </MailContainer>
-              <ContentsInput></ContentsInput>
-              <SendBtn>Send Mail</SendBtn>
-            </SendContainer>
-          </Left>
-        </Container>
+            <Left>
+              {/* <SendContainer>
+                <MailContainer>
+                  <ContactTitle>You can contact me by email</ContactTitle>
+                  <InputContainer>
+                    <MailTitle>Name</MailTitle>
+                    <MailInput></MailInput>
+                    <MailTitle>Company</MailTitle>
+                    <MailInput></MailInput>
+                  </InputContainer>
+                  <InputContainer>
+                    <MailTitle>E-mail</MailTitle>
+                    <MailInput2></MailInput2>
+                  </InputContainer>
+                </MailContainer>
+                <ContentsInput></ContentsInput>
+                <SendBtn>Send Mail</SendBtn>
+              </SendContainer> */}
+              <ContactUs></ContactUs>
+            </Left>
+          </Container>
+        </Body>
       </Wrapper>
+      <Footer />
     </>
   );
 };
@@ -56,8 +65,16 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  padding: 50px 20px 20px 20px;
+  /* padding: 50px 20px 20px 20px; */
+  justify-content: center;
+  align-items: center;
   height: 100%;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  height: 100vh;
+  color: black;
 `;
 
 const Container = styled.div`
@@ -177,31 +194,38 @@ const MailTitle = styled.div`
   /* width: 80px; */
 `;
 const MailInput = styled.input`
-  font-size: 20px;
+  font-size: 15px;
   width: 100px;
   color: red;
   border: none;
   border-bottom: 1px solid gray;
   margin-right: 50px;
   margin-left: 15px;
+  padding: 3px;
+`;
+
+const MailInput2 = styled.input`
+  font-size: 15px;
+  width: 250px;
+  color: red;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-right: 50px;
+  margin-left: 15px;
+  padding: 3px;
 `;
 
 const ContentsInput = styled.textarea`
-  font-size: 20px;
-  width: 78%;
+  font-size: 13px;
+  width: 370px;
   height: 100px;
   color: blue;
   border: none;
   border: 1px solid gray;
-  /* margin-right: 50px;
-  margin-left: 15px; */
-  /* right: -100px; */
   resize: none;
   margin-left: 55px;
   margin-top: 15px;
-  /* position: absolute; */
-  /* top: 0; */
-  /* margin-top: 100px; */
+  padding: 5px;
 `;
 
 const Line = styled.div`
@@ -212,18 +236,18 @@ const Line = styled.div`
 
 const SendBtn = styled.button`
   /* margin-top: 20px; */
-  font-size: 18px;
-  width: 100px;
+  font-size: 15px;
+  width: 85px;
   height: 30px;
   text-align: right;
   border-radius: 5;
   padding-top: 5px;
-  padding-right: 10px;
+  padding-right: 0px;
   border: 1px solid gray;
   background-color: white;
   position: relative;
   bottom: -15px;
-  right: -335px;
+  right: -350px;
   :hover {
     background-color: #209fac;
     color: white;

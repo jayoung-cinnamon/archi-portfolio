@@ -8,7 +8,7 @@ const Model = () => {
   const gltf = useLoader(GLTFLoader, "./modeling/three_js_test_section.glb");
   return (
     <>
-      <primitive object={gltf.scene} scale={0.4} />
+      <primitive object={gltf.scene} scale={0.5} />
     </>
   );
 };

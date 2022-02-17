@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Burger from "./Burger";
 const Header = () => {
   return (
     <Wrapper>
       <Container>
-        <Link to="/">
-          <Title>MOON YOUNG JEONG</Title>
-        </Link>
-        <MenuContainer>
+        <Body>
+          <Burger />
+          <Link to="/">
+            <Title>Jeong Moon-young</Title>
+          </Link>
+          {/* <MenuContainer>
           <Link to="/about">
             <Menu>About</Menu>
           </Link>
@@ -16,7 +19,7 @@ const Header = () => {
             <Menu>3DModeling</Menu>
           </Link>
           <Link to="/works">
-            <Menu>Work List</Menu>
+            <Menu>Project</Menu>
           </Link>
           <Link to="/awards">
             <Menu>Awards</Menu>
@@ -27,7 +30,9 @@ const Header = () => {
           <Link to="/">
             <Logo>M</Logo>
           </Link>
-        </MenuContainer>
+        </MenuContainer> */}
+          <Logo>M</Logo>
+        </Body>
       </Container>
     </Wrapper>
   );
@@ -42,19 +47,28 @@ const Wrapper = styled.div`
   background-color: #ffffff;
 `;
 
+const Body = styled.div`
+  width: 1080px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  padding: 20px;
+  display: flex;
+  /* border: 1px solid blue; */
+`;
 const Container = styled.div`
   display: flex;
-  height: 50px;
+  height: 65px;
   padding: 20px;
   border: 1px solid grey;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   box-sizing: border-box;
 `;
 
 const MenuContainer = styled.div`
-  width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,5 +95,6 @@ const Logo = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 15px;
+  color: #ff6400;
+  font-size: 20px;
 `;

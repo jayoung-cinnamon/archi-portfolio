@@ -5,6 +5,7 @@ import GlobalStyle from "../styles/GlobalStyles";
 import MainPage from "../components/main/MainPage";
 import AboutMain from "../components/about/AboutMain";
 import { Link } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 const Main = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const Main = () => {
           {/* <AboutMain /> */}
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };

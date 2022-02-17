@@ -2,49 +2,46 @@ import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import GlobalStyle from "../../styles/GlobalStyles";
 import Header from "../header/Header";
+import Footer from "../footer/Footer";
 import { select } from "d3";
+import awards from "../../data/awards";
+import { callbackify } from "util";
+import { workerData } from "worker_threads";
+import AwardsData from "./AwardsData";
+import AwardsData2 from "./AwardsData2";
+import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 const Awards = () => {
-  const [data, setData] = useState([1, 30, 45, 70]);
-  const [color, setColor] = useState(["skyblue", "blue", "lime", "darkgreen"]);
-  const svgRef = useRef(null);
-  useEffect(() => {
-    const svg = select(svgRef.current); // selection 객체
-
-    svg
-      .selectAll("D3Container")
-      .data(data)
-      .join(
-        (enter) => enter.append("rect"),
-        (update) => update.attr("class", "updated"),
-        (exit) => exit.remove()
-      )
-      .attr("x", (value) => value * 30)
-      .attr("y", (value) => value * 30)
-      .attr("width", (value) => value * 100)
-      .attr("height", (value) => value * 100)
-      .attr("stroke", "black")
-      .attr("stroke-width", "1")
-      .attr("fill", "pink")
-      .attr("opacity", "1");
-  }, [data]);
   return (
     <>
       <GlobalStyle />
       <Header />
       <Wrapper>
         <Container>
-          <D3Container>
-            <svg ref={svgRef}>
-              {data.map((el, i) => (
-                <rect r={el} key={i}>
-                  {el}
-                </rect>
-              ))}
-            </svg>
-          </D3Container>
+          {/* <Left>
+            <ParentSize>
+              {({ width, height }) => (
+                <AwardsData width={width} height={height} />
+              )}
+            </ParentSize>
+          </Left> */}
+          <Right>
+            <ParentSize>
+              {({ width, height }) => (
+                <AwardsData2 width={width} height={height} />
+              )}
+            </ParentSize>
+          </Right>
+          <Right>
+            <ParentSize>
+              {({ width, height }) => (
+                <AwardsData width={width} height={height} />
+              )}
+            </ParentSize>
+          </Right>
         </Container>
       </Wrapper>
+      <Footer />
     </>
   );
 };
@@ -65,11 +62,38 @@ const Container = styled.div`
   font-size: 100px;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  /* overflow: auto; */
+  /* flex-direction: column; */
+  /* border: 1px solid red; */
 `;
 
+const Left = styled.div`
+  width: 50%;
+  height: 750px;
+  /* border: 1px solid red; */
+`;
+const Right = styled.div`
+  width: 100%;
+  height: 700px;
+  border: 1px solid red;
+  font-size: 20px;
+  /* border: 1px solid blue; */
+`;
 const D3Container = styled.div`
-  width: 500px;
-  height: 1000px;
-  border: 1px solid blue;
+  width: 700px;
+  height: 700px;
+  /* border: 1px solid blue; */
+  /* svg {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+  } */
+`;
+
+const Title = styled.div`
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  font-size: 13px;
+  z-index: 9999;
 `;

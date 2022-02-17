@@ -1,38 +1,77 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 import GlobalStyle from "../styles/GlobalStyles";
 import GraphicViewer from "../components/graphicViewer/GraphicViewer";
 const ThreeDModeling = () => {
+  const firstRef = useRef<HTMLDivElement>(null);
+  const firstRefClick = () => {
+    firstRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const secondRef = useRef<HTMLDivElement>(null);
+  const secondRefClick = () => {
+    secondRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const thirdRef = useRef<HTMLDivElement>(null);
+  const thirdRefClick = () => {
+    thirdRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <GlobalStyle />
       <Header />
       <Wrapper>
-        <Container>
-          <Left>
-            <Title>Apartment</Title>
-            <SubTitle>Designed for traveler</SubTitle>
-            <Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </Text>
-            <Thumbnail />
-          </Left>
-          <Right>
-            <GraphicText>그래픽을 마우스로 돌려보세요!</GraphicText>
-            <GraphicViewer />
-          </Right>
-        </Container>
+        <Body>
+          <Container>
+            {/* <Left>
+              <Title>Apartment</Title>
+              <SubTitle>Designed for traveler</SubTitle>
+              <Text>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </Text>
+              <Thumbnail />
+            </Left>
+            <Right>
+              <GraphicText>그래픽을 마우스로 돌려보세요!</GraphicText>
+              <GraphicViewer />
+            </Right> */}
+            <GraphicWrapper>
+              <GraphicContainer ref={firstRef}>
+                <GraphicText>Nest of Artist</GraphicText>
+
+                <GraphicViewer />
+              </GraphicContainer>
+              <Btn>
+                <div>
+                  <a className="button" href="/works/nest">
+                    go to the project
+                  </a>
+                </div>
+              </Btn>
+              {/* <GraphicContainer ref={secondRef}>
+                <GraphicText>Title2</GraphicText>
+                <GraphicViewer />
+              </GraphicContainer>
+              <GraphicContainer ref={thirdRef}>
+                <GraphicText>Title3</GraphicText>
+                <GraphicViewer />
+              </GraphicContainer> */}
+            </GraphicWrapper>
+          </Container>
+        </Body>
       </Wrapper>
+      <Footer />
     </>
   );
 };
@@ -42,9 +81,22 @@ export default ThreeDModeling;
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-direction: column;
   padding: 50px 0 0 0;
+`;
+
+const Body = styled.div`
+  width: 1080px;
+  color: black;
+  /* height: 100vh; */
+  /* padding: 20px; */
+  /* display: flex; */
+  /* padding: 65px 0px 0px 0px; */
+  /* border: 1px solid blue; */
+  /* margin-top: 65px; */
 `;
 
 const Container = styled.div`
@@ -99,6 +151,92 @@ const Thumbnail = styled.div`
 `;
 
 const GraphicText = styled.div`
+  /* margin-top: 30px; */
+  width: 80%;
+  font-size: 20px;
   margin-top: 30px;
-  font-size: 15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #209fac;
+  /* border: 1px solid red; */
+`;
+
+const GraphicWrapper = styled.div`
+  width: 1080px;
+  height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  overflow-y: hidden;
+  justify-content: space-between;
+  align-items: start;
+  /* border: 1px solid blue; */
+`;
+
+const GraphicContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+  /* border: 1px solid red; */
+`;
+
+const Btn = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  bottom: 40px;
+  right: 200px;
+  color: #209fac;
+  a {
+    text-decoration: none;
+    color: #616161;
+  }
+
+  .button {
+    min-width: 100px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 15px;
+    /* background: #209eac40; */
+    color: #5e5e5e;
+    border: 1px solid #8f8f8f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .button:hover {
+    background: #209eac40;
+    color: black;
+    padding-right: 35px;
+  }
+
+  .button::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+
+    right: 0px;
+    top: 13px;
+    /* background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover; */
+    opacity: 0;
+
+    transform: rotate(45deg);
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    transition: opacity 0.5s, right 0.3s;
+  }
+
+  .button:hover::after {
+    opacity: 1;
+    right: 20px;
+  }
 `;
