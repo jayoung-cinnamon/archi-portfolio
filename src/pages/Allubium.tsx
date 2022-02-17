@@ -194,6 +194,7 @@ const Img1 = styled.div<SrcProps>`
   height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 0px -450px;
   background-image: url(${(props) => props.src});
 `;
 const Img2 = styled.div<SrcProps>`

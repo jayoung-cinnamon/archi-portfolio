@@ -48,10 +48,17 @@ const ThreeDModeling = () => {
             </Right> */}
             <GraphicWrapper>
               <GraphicContainer ref={firstRef}>
-                <GraphicText>Title</GraphicText>
+                <GraphicText>Nest of Artist</GraphicText>
 
                 <GraphicViewer />
               </GraphicContainer>
+              <Btn>
+                <div>
+                  <a className="button" href="/works/nest">
+                    go to the project
+                  </a>
+                </div>
+              </Btn>
               {/* <GraphicContainer ref={secondRef}>
                 <GraphicText>Title2</GraphicText>
                 <GraphicViewer />
@@ -174,4 +181,62 @@ const GraphicContainer = styled.div`
   align-items: center;
   /* border: 1px solid red; */
   /* border: 1px solid red; */
+`;
+
+const Btn = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  bottom: 40px;
+  right: 200px;
+  color: #209fac;
+  a {
+    text-decoration: none;
+    color: #616161;
+  }
+
+  .button {
+    min-width: 100px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 15px;
+    /* background: #209eac40; */
+    color: #5e5e5e;
+    border: 1px solid #8f8f8f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .button:hover {
+    background: #209eac40;
+    color: black;
+    padding-right: 35px;
+  }
+
+  .button::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+
+    right: 0px;
+    top: 13px;
+    /* background: url(https://image.flaticon.com/icons/png/512/109/109617.png)
+      no-repeat center/cover; */
+    opacity: 0;
+
+    transform: rotate(45deg);
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    transition: opacity 0.5s, right 0.3s;
+  }
+
+  .button:hover::after {
+    opacity: 1;
+    right: 20px;
+  }
 `;
