@@ -34,6 +34,10 @@ https://user-images.githubusercontent.com/68357066/167597355-0734c715-38c3-4417-
 + 포트폴리오 필터링 및 개별 페이지
 
 
+
+https://user-images.githubusercontent.com/68357066/167598405-891738a2-421e-473f-837a-85f324f72bfb.mp4
+
+
 + mail.js를 이용한 contact 페이지
 
 <img width="1440" alt="2" src="https://user-images.githubusercontent.com/68357066/167597914-efe3a50a-e289-46a6-b14d-dcd5475f1d7f.png">
